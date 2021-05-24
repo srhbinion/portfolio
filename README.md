@@ -1,23 +1,29 @@
+# Eleventy-Parcel
 
-## Hosted
+## Commands
 
-// http://sarahbinion.com/
+Clone or download the project from the [Github repository](https://github.com/mbarker84/eleventy-parcel).
 
-## Local
+### Install dependencies
 
-// http://localhost:8080/webpack-dev-server/
+```
+npm install
+```
 
-// Run Local Command
-$ webpack-dev-server
+### Run
 
-## Commit Messages
+```
+npm start
+```
 
-Must be prefixed with one of the following:
-* feat: A new feature
-* fix: A bug fix
-* docs: Documentation only changes
-* style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-* refactor: A code change that neither fixes a bug nor adds a feature
-* perf: A code change that improves performance
-* test: Adding missing or correcting existing tests
-* chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
+### Build for production
+
+```
+npm run build
+```
+
+### Generate SVG sprite
+
+```
+npm run svg
+```

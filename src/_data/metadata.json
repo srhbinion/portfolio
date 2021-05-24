@@ -1,0 +1,11 @@
+{
+  "title": "Sarah Binion | Front-End Engineer",
+  "url": "https://sarahbinion.com",
+  "description": "Design all the things! Fan of sass, keeping it DRY, and accessibility.",
+  "author": {
+    "name": "Sarah Binion",
+    "twitter": "@srhbinion"
+  },
+  "img": "door.jpg",
+  "githubUrl": "https://github.com/srhbinion"
+}
