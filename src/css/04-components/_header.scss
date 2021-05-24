@@ -15,7 +15,7 @@
 }
 
 .c-header--bg {
-  background-color: $bgDark;
+  background-color: #000080;
 }
 
 .c-header__menu-btn {
@@ -23,9 +23,9 @@
   top: 0;
   right: 0;
   appearance: none;
-  border: none;
+  border: 2px solid transparent;
   background-color: transparent;
-  color: $lightGrey;
+  color: #000080;
   transition: color 200ms;
   text-decoration: underline;
   font-family: inherit;
@@ -37,13 +37,18 @@
 
   &:hover,
   &:focus {
-    color: $white;
+    color: #000080;
+    border: 2px solid #a800a8;
   }
 
   @media (min-width: $md) {
     right: 1.5rem;
     top: 0.5rem;
     font-size: 1.2rem;
+  }
+
+  &[aria-expanded='true'] {
+    background-color: $white;
   }
 }
 

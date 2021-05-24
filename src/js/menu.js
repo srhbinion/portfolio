@@ -26,7 +26,7 @@ const close = () => {
   setTimeout(() => {
     menuWrapper.hidden = true
     menuBtn.setAttribute('aria-expanded', false)
-    menuBtn.innerText = 'Menu'
+    menuBtn.innerText = 'Social Menu'
     bodyScrollLock(false)
   }, 250)
 }

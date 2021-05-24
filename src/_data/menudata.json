@@ -8,5 +8,14 @@
     "title": "Twitter",
     "icon": "twitter",
     "url": "https://twitter.com/srhbinion"
+  },
+  {
+    "title": "LinkedIn",
+    "icon": "linkedin",
+    "url": "https://www.linkedin.com/in/sarahbinion"
+  },
+  {
+    "title": "Code Pen",
+    "url": "https://codepen.io/srhbinion"
   }
 ]
