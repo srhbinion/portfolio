@@ -1,10 +1,11 @@
+@import '01-config/reset';
+@import '01-config/normalize';
 @import '01-config/variables';
+@import '01-config/fonts';
+@import '01-config/functions';
 
-@import '02-base/reset';
-@import '02-base/typography';
 @import '02-base/layout';
-
-@import '03-objects/richtext';
+@import '02-base/typography';
 
 @import '04-components/header';
 @import '04-components/footer';
