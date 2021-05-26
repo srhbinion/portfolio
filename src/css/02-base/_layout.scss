@@ -1,36 +1,22 @@
-body {
-  background-color: $white;
-  color: $bgDark;
+.container {
+  max-width: 42em;
+  margin: 0 auto;
+  padding: 2rem;
+
+  @media (min-width: $md) {
+    padding: 6rem;
+  }
+}
+
+.page {
+  height: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  width: 100vw;
-  font-display: swap;
-}
-
-body {
-  font-family: 'Lato', sans-serif;
-
-  @media (min-width: $md) {
-    font-size: 1.2rem;
-  }
-}
-
-.container {
-  max-width: 60rem;
-  margin: 0 auto;
-  padding: 0 1rem;
-
-  @media (min-width: $md) {
-    padding: 0 2rem;
-  }
-}
-
-.page-content {
-  padding: 6rem 0 2rem 0;
-  flex-grow: 1;
-
-  @media (min-width: $md) {
-    padding: 10rem 0;
-  }
+  justify-content: space-between;
+  background-color: $bgDark;
+  color: $white;
+  font-family: $font-sans;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
 }

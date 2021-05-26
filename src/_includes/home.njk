@@ -1,21 +1,22 @@
 {% extends "./layout.njk" %}
 
 {% block content %}
-  <div class="c-hero">
+  <div class="hero">
     <div class="container">
-      <div>
-        <h1 class="c-hero__heading">{{ pageTitle }}</h1>
-        <p>Fan of sass, keeping it DRY, and champion for people</p>
+      <h1 class="hdg hdg--1">{{ pageTitle }}</h1>
+      </br>
+      </br>
+      <p class="text">Fan of sass, keeping it DRY, and champion for people</p>
+      </br>
+      <div class="desc">
+        <p class="text">👋 Hello! {{ metadata.description }}</p>
+        </br>
+        <p class="text">Please note this site is currently being updated 05/2021</p>
       </div>
-      <div class="c-hero__desc">
-        <p>👋 Hello! {{ metadata.description }}</p>
-        <br>
-        <p>Please note this site is currently being updated 05/2021</p>
-      </div>
-
     </div>
+    <div class="moon"></div>
   </div>
-
+  
   {{ content | safe }}
 
 {% endblock %}

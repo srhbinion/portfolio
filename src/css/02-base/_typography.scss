@@ -3,7 +3,7 @@ h2,
 h3,
 h4 {
   line-height: 1.1;
-  font-family: 'Amiri', serif;
+  font-family: $font-sans;
   font-weight: 700;
   margin: 0;
 }
@@ -31,7 +31,7 @@ h2 {
 }
 
 h3 {
-  font-family: 'Lato', sans-serif;
+  font-family: $font-sans;
   font-size: 1.1rem;
 
   @media (min-width: $md) {
@@ -44,10 +44,11 @@ p {
 }
 
 a {
-  color: lighten($bgDark, 20%);
+  color: $white;
+}
 
-  &:hover,
-  &:focus {
-    color: $bgDark;
-  }
+.text {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: $font-sans;
+  font-size: px-to-rem(18px);
 }

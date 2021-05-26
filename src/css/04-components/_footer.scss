@@ -1,7 +1,7 @@
-.c-footer {
+.footer {
   padding: 1rem;
   color: $lightGrey;
-  background-color: darken(#000080, 5%);
+  background-color: $black;
 
   @media (min-width: $md) {
     padding: 1rem 2rem;

@@ -4,6 +4,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  border: 10 px solid yellow;
 
   @media (min-width: $md) {
     padding-right: 1rem;
@@ -25,7 +26,7 @@
   appearance: none;
   border: 2px solid transparent;
   background-color: transparent;
-  color: #000080;
+  color: $white;
   transition: color 200ms;
   text-decoration: underline;
   font-family: inherit;
@@ -97,7 +98,7 @@
 }
 
 .c-header__title {
-  font-family: 'Amiri', serif;
+  font-family: $font-sans;
   font-size: 1.4rem;
   line-height: 1;
   margin-bottom: 0.5rem;
