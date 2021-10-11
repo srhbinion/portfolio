@@ -6,7 +6,6 @@
     <div class="hidden">
       {% include './partials/sprite.svg' %}
     </div>
-
     {% if page.url == '/' %}
       {% set showHomeLink = false %}
     {% else %}
@@ -14,10 +13,13 @@
     {% endif %}
 
     {% include "./partials/header.njk" %}
+    <!--page-->
 
     {% block content %}{% endblock %}
 
     {% include "./partials/footer.njk" %}
+    <!--end-->
+
     <!--JS-->
     {% if version.js | length == 0 %}
       {% set JsVersion = '' %}

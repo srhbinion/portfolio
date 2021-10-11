@@ -1,5 +1,5 @@
-import { trapFocus, visibleLinks } from './helpers/trapFocus'
-import bodyScrollLock from './helpers/bodyScrollLock'
+import { trapFocus, visibleLinks } from '../helpers/trapFocus'
+import bodyScrollLock from '../helpers/bodyScrollLock'
 
 const header = document.querySelector('[data-header]')
 const menuBtn = header.querySelector('[data-btn="menu"]')

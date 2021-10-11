@@ -3,15 +3,19 @@
   {% set headerClass = 'c-header--bg' %}
 {% endif %}
 
-<header class="c-header {{ headerClass }}" data-header="data-header">
+<header class="header {{ headerClass }}" data-header="data-header">
   {% if showHomeLink == true %}
     <h3 class="c-header__title">
       <a href="/">{{ metadata.title }}</a>
     </h3>
   {% endif %}
   <button class="c-header__menu-btn" hidden="true" data-btn="menu" aria-haspopup="true">Social Menu</button>
+  
+  <!-- nav -->
+  
   <div data-menu-wrapper="data-menu-wrapper">
     <nav class="c-header__nav">
+    <h2 style="border:1px solid red; color:white"> More people</h2>
       <ul class="c-header__list">
         <li class="c-header__item">
           <a class="c-header__link" href="/" hidden="true" data-home-link="data-home-link">Home</a>
@@ -36,4 +40,7 @@
       </ul>
     </nav>
   </div>
+
+  <!-- nav end -->
+
 </header>

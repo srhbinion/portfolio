@@ -2,19 +2,10 @@
 
 {% block content %}
   <div class="hero">
-    <div class="container">
-      <h1 class="hdg hdg--1">{{ pageTitle }}</h1>
-      </br>
-      </br>
-      <p class="text">Fan of sass, keeping it DRY, and champion for people</p>
-      </br>
-      <div class="desc">
-        <p class="text">👋 Hello! {{ metadata.description }}</p>
-        </br>
-        <p class="text">Please note this site is currently being updated 05/2021</p>
-      </div>
-    </div>
-    <div class="moon"></div>
+    <h1 class="hdg hdg__1">{{ pageTitle }}</h1>
+    <p class="text">Fan of sass, keeping it DRY, and champion for people</p>
+    <p class="text">👋 Hello! {{ metadata.description }}</p>
+    <p class="text">Please note this site is currently being updated 05/2021</p>
   </div>
   
   {{ content | safe }}

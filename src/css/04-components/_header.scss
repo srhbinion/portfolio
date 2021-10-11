@@ -1,17 +1,19 @@
-.c-header {
+.header {
   padding: 1rem 1rem 0.5rem 1rem;
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
+  z-index: 2;
+  // left: 0;
   width: 100%;
-  border: 10 px solid yellow;
+  border: 5px solid pink;
+  background-color: tan;
 
   @media (min-width: $md) {
-    padding-right: 1rem;
-    min-height: 4.5rem;
-    display: flex;
-    align-items: center;
-    padding: 0.5rem 1rem 0.5rem 2rem;
+    // padding-right: 1rem;
+    // min-height: 4.5rem;
+    // display: flex;
+    // align-items: center;
+    // padding: 0.5rem 1rem 0.5rem 2rem;
   }
 }
 
