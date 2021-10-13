@@ -52,3 +52,9 @@ a {
   font-family: $font-sans;
   font-size: px-to-rem(18px);
 }
+
+.hdg {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: $font-sans;
+  font-size: px-to-rem(32px);
+}

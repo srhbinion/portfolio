@@ -1,8 +1,29 @@
 .page {
   position: relative;
-  border: 10px solid yellow;
   height: 100%;
   display: block;
-  //flex-direction: column;
   background-color: $bgDark;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    position: sticky;
+    min-height: 50px;
+    top: 0;
+    z-index: 2;
+  }
+
+  &__main {
+    padding-top: 50px;
+    margin-bottom: 50px;
+    flex: 2 2;
+
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      min-height: 50px;
+    }
+  }
 }

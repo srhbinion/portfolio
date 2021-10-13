@@ -3,20 +3,29 @@
 {% else %}
   {% set CssVersion = version.css %}
 {% endif %}
-
-<head style="border: 1px solid teal">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head style="border: 1px solid teal"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
   <title>{{ metadata.title }}</title>
-  <meta name="Description" content="{{ metadata.description }}">
-  <link rel="stylesheet" href="/styles{{ CssVersion }}.css">
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Lato:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="{{ metadata.description }}"/>
+  <meta name="@context" content="https://schema.org"/>
+  <meta property="og:context" content="{{ metadata.title }}"/>
   <meta property="og:title" content="{{ metadata.title }}"/>
-  <meta property="og:type" content="website"/>
+  <meta property="og:keywords" content="{{ metadata.keywords }}"/>
+  <meta property="og:type" content="{{ metadata.type }}"/>
   <meta property="og:description" content="{{ metadata.description }}"/>
   <meta property="og:image" content="{{ metadata.url }}{{ metadata.img }}"/>
   <meta property="og:url" content="{{ metadata.url }}"/>
   <meta property="og:site_name" content="{{ metadata.title }}"/>
+  <meta name="twitter:widgets:theme" content="light"/>
   <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:dnt" content="on"/>
+  <meta name="twitter:creator" content="{{ metadata.author.twitter }}"/>
+  <meta name="twitter:title" content="{{ metadata.author.name }}"/>
+  <meta name="twitter:image" content="{{ metadata.img }}"/>
+  <link rel="stylesheet" href="/styles{{ CssVersion }}.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Lato:wght@400;600&display=swap" rel="stylesheet" />
+  <!--favicon-->
+  <!--canonical-->
 </head>

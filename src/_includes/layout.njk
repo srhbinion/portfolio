@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-GB">
   {% include "./partials/siteHead.njk" %}
-
   <body class="page">
     <div class="hidden">
       {% include './partials/sprite.svg' %}
@@ -11,16 +10,13 @@
     {% else %}
       {% set showHomeLink = true %}
     {% endif %}
-
-    {% include "./partials/header.njk" %}
-    <!--page-->
-
+    <div class="page__header">
+      {% include "./partials/header.njk" %}
+    </div>
+    <main class="page__main">
     {% block content %}{% endblock %}
-
-    {% include "./partials/footer.njk" %}
-    <!--end-->
-
-    <!--JS-->
+      {% include "./partials/footer.njk" %}
+    </main>
     {% if version.js | length == 0 %}
       {% set JsVersion = '' %}
     {% else %}

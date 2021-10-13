@@ -1,13 +1,8 @@
 {% extends "./layout.njk" %}
 
 {% block content %}
-  <div class="hero">
-    <h1 class="hdg hdg__1">{{ pageTitle }}</h1>
-    <p class="text">Fan of sass, keeping it DRY, and champion for people</p>
-    <p class="text">👋 Hello! {{ metadata.description }}</p>
-    <p class="text">Please note this site is currently being updated 05/2021</p>
-  </div>
-  
+  {% include "./partials/hero.njk" %}
+  {% include "./partials/theme_switch.njk" %}
+  {% include "./partials/social.njk" %}
   {{ content | safe }}
-
 {% endblock %}
