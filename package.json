@@ -42,7 +42,7 @@
     "parcel-plugin-imagemin": "^4.0.2",
     "prettier": "^2.2.1",
     "sass": "^1.32.7",
-    "stylelint": "^13.10.0",
+    "stylelint": "^15.10.1",
     "stylelint-prettier": "^1.1.2",
     "svg-sprite-generator": "^0.0.7"
   },
