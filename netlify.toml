@@ -1,7 +1,7 @@
 [build]
-  command = "npm run build"
+  command = "npm run start"
   publish = "_site"
-
+npm run start
 # Optional: Configure redirects
 # [[redirects]]
 #   from = "/api/*"
