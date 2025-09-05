@@ -2,9 +2,6 @@
   command = "npm run build"
   publish = "_site"
 
-[build.environment]
-  NODE_VERSION = "18"
-
 # Optional: Configure redirects
 # [[redirects]]
 #   from = "/api/*"
