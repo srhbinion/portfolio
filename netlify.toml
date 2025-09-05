@@ -1,16 +1,9 @@
 [build]
-  publish = "_site"
-  
-  # Command to build your project
   command = "npm run build"
-  
-  # Optional: specify Node.js version (recommended for consistency)
-  environment = { NODE_VERSION = "18" }
+  publish = "_site"
 
 [build.environment]
-  # Set any environment variables needed for the build
-  # NODE_ENV = "production"
-  # REACT_APP_API_URL = "https://api.example.com"
+  NODE_VERSION = "18"
 
 # Optional: Configure redirects
 # [[redirects]]
