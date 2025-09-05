@@ -1,9 +1,6 @@
 [build]
-  command = "npm start"
+  command = "npm run build"
   publish = "_src"
-
-[[headers]]
-  for = "/*"
 
   [headers.values]
     X-Frame-Options = "SAMEORIGIN"
