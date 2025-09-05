@@ -1,0 +1,35 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ author.name }}",
+  "url": "{{ author.url }}",
+  "image": "{{ author.image }}",
+  "sameAs": [
+    "https://twitter.com/janedoe",
+    "https://www.linkedin.com/in/janedoe",
+    "https://github.com/janedoe"
+  ],
+  "jobTitle": "{{ author.title }}",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Freelance"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Wisconsin"
+  },
+  "knowsAbout": [
+    "Web Development",
+    "JavaScript",
+    "Leadership"
+  ],
+  "description": "Inclusive Engineering Leader.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{ author.address.addressLocality }}",
+    "addressRegion": "{{ author.address.addressRegion }}",
+    "addressCountry": "{{ author.address.addressCountry }}"
+  }
+}
+</script>
