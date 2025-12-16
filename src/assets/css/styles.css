@@ -1,0 +1,42 @@
+
+html{
+  background-color: red !important;
+}
+
+.name {
+  font-size: 20px !important;
+  color: blue !important;
+}
+
+.name {
+  padding: 20px 0;
+  
+  &:hover {
+    background: gray;
+  }
+}
+
+
+.window {
+  background-color: white;
+  border: 1px solid black;
+  padding: 2px;
+}
+
+.window-header {
+  background-color: green;
+  padding: 10px;
+  font-weight: bold;
+  border: 1px solid green;
+  padding: 2px;
+  margin: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.window-header div{
+  border: 1px solid orange;
+  padding: 2px;
+  margin: 4px;
+}

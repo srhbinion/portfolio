@@ -1,13 +1,13 @@
 {
   "name": "11ty-resume-template",
   "version": "1.0.1",
-  "description": "This template can be used to create new resumes with 11ty.",
+  "description": "A sight about Sarah Binion",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all -p dev:*",
-    "build": "run-s build:*",
-    "dev:11ty": "eleventy --serve",
-    "build:11ty": "eleventy"
+    "start": "npx @11ty/eleventy --serve",
+    "watch": "npx @11ty/eleventy --watch",
+    "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "template",
@@ -23,8 +23,7 @@
     "npm",
     "github"
   ],
-  "author": "",
-  "license": "MIT",
+  "author": "Sarah Binion",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-img": "^6.0.4",
@@ -34,19 +33,5 @@
   },
   "dependencies": {
     "netlify-cli": "^23.12.3"
-  },
-  "overrides": {
-    "jws": "^4.0.1",
-    "@octokit/endpoint": "^10.1.1",
-    "@octokit/request": "^9.1.3",
-    "@octokit/request-error": "^6.1.5",
-    "brace-expansion": "^2.0.2",
-    "esbuild": "^0.24.3",
-    "glob": "^11.0.0",
-    "nanoid": "^3.3.8",
-    "node-forge": "^1.4.0",
-    "on-headers": "^1.1.0",
-    "tar-fs": "^3.1.1",
-    "tmp": "^0.2.4"
   }
 }
