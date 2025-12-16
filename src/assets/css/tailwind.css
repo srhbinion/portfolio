@@ -29,3 +29,7 @@
 .work-entry:nth-child(odd) .dot-bg {
   @apply left-0 -translate-x-2/4;
 }
+
+html{
+  background-color: red !important;
+}
