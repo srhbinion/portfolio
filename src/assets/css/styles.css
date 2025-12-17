@@ -1,6 +1,34 @@
+:root {
+	--white: #fff;
+	--black-900: #262626;
+	--os9-lavender: #CCCCFF;
+  --os9-azul:#333399;
+	--os9-grey-200: #EEEEEE;
+  --os9-grey-300: #DDDDDD;
+  --os9-grey-400: #CCCCCC;
+  --os9-grey-500: #BBBBBB;
+  --os9-grey-600: #999999;
+  --os9-grey-700: #808080;
+  --os9-grey-800: #666666;
+  --os9-pink: #000000;
+	--corners: 24px;
+  --base-unit: 1rem;
+}
 
-html{
-  background-color: red !important;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+html {
+	font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+	padding: var(--base-unit);
+	display: block;
+}
+
+html {
+  background-color: var(--os9-lavender);
 }
 
 .name {
@@ -12,7 +40,7 @@ html{
   padding: 20px 0;
   
   &:hover {
-    background: gray;
+    background-color: gray;
   }
 }
 
