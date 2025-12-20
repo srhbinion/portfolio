@@ -1,5 +1,9 @@
-// Modules
+/**
+ * Initialize all components when DOM is ready
+ * This file handles auto-initialization of components on page load
+ */
+import { MenuDropdown } from './components/menu/MenuDropdown.js';
 
-// Compenents
-import './components/menu-dropdown'
-
+document.addEventListener('DOMContentLoaded', () => {
+  new MenuDropdown();
+});
