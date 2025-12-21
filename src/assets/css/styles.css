@@ -29,13 +29,22 @@ html {
   padding: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
 
-.name {
-  font-size: 20px !important;
-  color: blue !important;
+.merriweather {
+  font-family: "Merriweather", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
 }
 
 .name {
+  font-family: "Merriweather", serif;
+  letter-spacing: 2px;
+  font-weight: 900;
+  font-size: 1rem;
+  color: blue;
   padding: 20px 0;
   
   &:hover {
@@ -43,28 +52,115 @@ html {
   }
 }
 
+/* window styles */
+
 .window {
-  background-color: white;
-  border: 1px solid black;
-  padding: 2px;
+  background-color: var( --os9-grey-200);
+  border: 2px solid var(--black-900);
 }
 
 .window-header {
-  background-color: green;
+  background-color: var(--os9-grey-400);
   padding: 10px;
   font-weight: bold;
-  border: 1px solid green;
-  padding: 2px;
-  margin: 4px;
+  border-bottom: 2px solid var(--black-900);
+  padding: 4px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
-.window-header div{
-  border: 1px solid orange;
-  padding: 2px;
-  margin: 4px;
+.window-button {
+  padding: .575rem;
+  background-color: var(--os9-lavender);
+  background-image: linear-gradient(to bottom right,#9A9A9A, #F1F1F1);
+  border: 3px solid var(--black-900);
+  border-top: 4px solid var(--black-900);
+  position: relative;
+  cursor: pointer;
+  transition: border 0.15s ease-in;
+  &:hover {
+    background-image: linear-gradient(to bottom right, #F1F1F1, #9A9A9A);
+    &::before {
+      border-top: 2px solid var(--os9-grey-800);
+      border-left: 2px solid var(--os9-grey-800);
+      border-right: 2px solid var(--white);
+      border-bottom: 2px solid var(--white);
+    }
+  }
+  &:focus{
+    outline: 2px dashed red;
+    outline-offset: 2px;
+  }
+}
+
+.window-button::before {
+  content: "";
+  position: absolute;
+  top: -2px; /* Adjust as needed for position and gap */
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border-top: 2px solid var(--white);
+  border-left: 2px solid var(--white);
+  border-right: 2px solid var(--os9-grey-800);
+  border-bottom: 2px solid var(--os9-grey-800);
+}
+
+.window-name {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.window-name::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 4px;
+  width: 100%;
+  margin-right: 4px;
+  height: 24px;
+  background: repeating-linear-gradient(
+      to bottom,
+      var(--os9-grey-800) 0px,
+      var(--os9-grey-800) 1px,
+      var(--os9-grey-800) 1px,
+      var(--os9-grey-200) 2px,
+      transparent 4px
+  );
+}
+.window-name span {
+  background-color: var(--os9-grey-400);
+  z-index: 100;
+  position: relative;
+  padding: 0 8px;
+  display: inline-block;
+}
+
+.window-name span::before {
+  content: "";
+  position: absolute;
+  background-color: var(--os9-grey-400);
+  width: 100%;
+  height: 6px;
+  top: -6px;
+  left: 0;
+}
+
+.window-name span::after {
+  content: "";
+  position: absolute;
+  background-color: var(--os9-grey-400);
+  width: 100%;
+  height: 6px;
+  bottom: -6px;
+  left: 0;
+}
+
+.window-body {
+  padding: 4px;
 }
 
 
@@ -82,7 +178,23 @@ html {
   }
 }
 
-/* Header */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
+.sr-only:focus {
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+}
+
+/* Dropdown Header */
 header {
   background-color: var(--os9-grey-300);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -139,7 +251,6 @@ nav {
   transform: rotate(180deg);
 }
 
-/* Dropdown Menu */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -183,3 +294,4 @@ nav {
 .dropdown-item:last-child {
   border-radius: 0 0 4px 0;
 }
+/* End Dropdown Header */

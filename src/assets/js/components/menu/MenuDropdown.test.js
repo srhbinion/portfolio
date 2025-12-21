@@ -17,9 +17,9 @@ describe('MenuDropdown', () => {
           File
         </button>
         <ul class="dropdown-menu">
-          <li><a href="#" class="dropdown-item">Calculator</a></li>
-          <li><a href="#" class="dropdown-item">Stickies</a></li>
-          <li><a href="#" class="dropdown-item">Window</a></li>
+          <li><button class="dropdown-item">Calculator</button></li>
+          <li><button class="dropdown-item">Stickies</button></li>
+          <li><button class="dropdown-item">Window</button></li>
         </ul>
       </nav>
     `;
