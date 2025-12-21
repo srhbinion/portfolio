@@ -33,6 +33,7 @@ class MenuDropdown {
     this.isInitialized = true;
     this.handleContainerClick = this.handleContainerClick.bind(this);
     this.handleKeydown = this.handleKeydown.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.init();
   }
 
@@ -43,7 +44,7 @@ class MenuDropdown {
   bindEvents() {
     this.container.addEventListener('click', this.handleContainerClick);
     document.addEventListener('keydown', this.handleKeydown);
-    document.addEventListener('click', this.handleOutsideClick.bind(this));
+    document.addEventListener('click', this.handleOutsideClick);
   }
 
   handleContainerClick(e) {
@@ -90,7 +91,7 @@ class MenuDropdown {
     
     this.container?.removeEventListener('click', this.handleContainerClick);
     document.removeEventListener('keydown', this.handleKeydown);
-    document.removeEventListener('click', this.handleOutsideClick.bind(this));
+    document.removeEventListener('click', this.handleOutsideClick);
   }
 }
 
