@@ -6,8 +6,8 @@ import { MenuDropdown } from './MenuDropdown.js';
 console.log('MenuDropdown import:', MenuDropdown);
 
 describe('MenuDropdown', () => {
-  let container;
-  let menuDropdown;
+  let container: HTMLElement;
+  let menuDropdown: MenuDropdown;
 
   beforeEach(() => {
     // Setup DOM
@@ -34,8 +34,8 @@ describe('MenuDropdown', () => {
 
   describe('Initialization', () => {
     it('should initialize with dropdown closed', () => {
-      const toggle = container.querySelector('.dropdown-toggle');
-      expect(toggle.getAttribute('aria-expanded')).toBe('false');
+      const toggle = container.querySelector<HTMLButtonElement>('.dropdown-toggle');
+      expect(toggle?.getAttribute('aria-expanded')).toBe('false');
     });
 
     it('should warn if elements not found', () => {
@@ -50,47 +50,55 @@ describe('MenuDropdown', () => {
   describe('Dropdown Toggle', () => {
     it('should open dropdown when toggle is clicked', async () => {
       const user = userEvent.setup();
-      const toggle = container.querySelector('.dropdown-toggle');
-      const menu = container.querySelector('.dropdown-menu');
+      const toggle = container.querySelector<HTMLButtonElement>('.dropdown-toggle');
+      const menu = container.querySelector<HTMLElement>('.dropdown-menu');
+
+      if (!toggle) throw new Error('Toggle not found');
 
       await user.click(toggle);
 
       expect(toggle.getAttribute('aria-expanded')).toBe('true');
-      expect(menu.classList.contains('active')).toBe(true);
+      expect(menu?.classList.contains('active')).toBe(true);
     });
 
     it('should close dropdown when toggle is clicked again', async () => {
       const user = userEvent.setup();
-      const toggle = container.querySelector('.dropdown-toggle');
-      const menu = container.querySelector('.dropdown-menu');
+      const toggle = container.querySelector<HTMLButtonElement>('.dropdown-toggle');
+      const menu = container.querySelector<HTMLElement>('.dropdown-menu');
+
+      if (!toggle) throw new Error('Toggle not found');
 
       await user.click(toggle);
       expect(toggle.getAttribute('aria-expanded')).toBe('true');
 
       await user.click(toggle);
       expect(toggle.getAttribute('aria-expanded')).toBe('false');
-      expect(menu.classList.contains('active')).toBe(false);
+      expect(menu?.classList.contains('active')).toBe(false);
     });
   });
 
   describe('Outside Click Behavior', () => {
     it('should close dropdown when clicking outside', async () => {
       const user = userEvent.setup();
-      const toggle = container.querySelector('.dropdown-toggle');
-      const menu = container.querySelector('.dropdown-menu');
+      const toggle = container.querySelector<HTMLButtonElement>('.dropdown-toggle');
+      const menu = container.querySelector<HTMLElement>('.dropdown-menu');
+
+      if (!toggle) throw new Error('Toggle not found');
 
       await user.click(toggle);
       expect(toggle.getAttribute('aria-expanded')).toBe('true');
 
       await user.click(document.body);
       expect(toggle.getAttribute('aria-expanded')).toBe('false');
-      expect(menu.classList.contains('active')).toBe(false);
+      expect(menu?.classList.contains('active')).toBe(false);
     });
 
     it('should keep dropdown open when clicking inside menu', async () => {
       const user = userEvent.setup();
-      const toggle = container.querySelector('.dropdown-toggle');
-      const menu = container.querySelector('.dropdown-menu');
+      const toggle = container.querySelector<HTMLButtonElement>('.dropdown-toggle');
+      const menu = container.querySelector<HTMLElement>('.dropdown-menu');
+
+      if (!toggle || !menu) throw new Error('Elements not found');
 
       await user.click(toggle);
       expect(toggle.getAttribute('aria-expanded')).toBe('true');
@@ -103,7 +111,9 @@ describe('MenuDropdown', () => {
   describe('Keyboard Interactions', () => {
     it('should close dropdown when Escape key is pressed', async () => {
       const user = userEvent.setup();
-      const toggle = container.querySelector('.dropdown-toggle');
+      const toggle = container.querySelector<HTMLButtonElement>('.dropdown-toggle');
+
+      if (!toggle) throw new Error('Toggle not found');
 
       await user.click(toggle);
       expect(toggle.getAttribute('aria-expanded')).toBe('true');
@@ -114,8 +124,10 @@ describe('MenuDropdown', () => {
 
     it('should not close dropdown on other keys', async () => {
       const user = userEvent.setup();
-      const toggle = container.querySelector('.dropdown-toggle');
-      const menu = container.querySelector('.dropdown-menu');
+      const toggle = container.querySelector<HTMLButtonElement>('.dropdown-toggle');
+      const menu = container.querySelector<HTMLElement>('.dropdown-menu');
+
+      if (!toggle || !menu) throw new Error('Elements not found');
 
       await user.click(toggle);
       expect(toggle.getAttribute('aria-expanded')).toBe('true');
@@ -129,14 +141,16 @@ describe('MenuDropdown', () => {
 
   describe('Accessibility', () => {
     it('should have proper ARIA attributes', () => {
-      const toggle = container.querySelector('.dropdown-toggle');
-      expect(toggle.hasAttribute('aria-haspopup')).toBe(true);
-      expect(toggle.hasAttribute('aria-expanded')).toBe(true);
+      const toggle = container.querySelector<HTMLButtonElement>('.dropdown-toggle');
+      expect(toggle?.hasAttribute('aria-haspopup')).toBe(true);
+      expect(toggle?.hasAttribute('aria-expanded')).toBe(true);
     });
 
     it('should update aria-expanded on state change', async () => {
       const user = userEvent.setup();
-      const toggle = container.querySelector('.dropdown-toggle');
+      const toggle = container.querySelector<HTMLButtonElement>('.dropdown-toggle');
+
+      if (!toggle) throw new Error('Toggle not found');
 
       expect(toggle.getAttribute('aria-expanded')).toBe('false');
       await user.click(toggle);
@@ -146,7 +160,10 @@ describe('MenuDropdown', () => {
 
   describe('Cleanup', () => {
     it('should remove event listeners on destroy', () => {
-      const toggle = container.querySelector('.dropdown-toggle');
+      const toggle = container.querySelector<HTMLButtonElement>('.dropdown-toggle');
+      
+      if (!toggle) throw new Error('Toggle not found');
+      
       menuDropdown.destroy();
 
       // After destroy, click should not toggle dropdown
