@@ -1,0 +1,114 @@
+/* window styles */
+
+.window {
+  background-color: var( --os9-grey-200);
+  border: 2px solid var(--black-900);
+}
+
+.window-header {
+  background-color: var(--os9-grey-400);
+  padding: 10px;
+  font-weight: bold;
+  border-bottom: 2px solid var(--black-900);
+  padding: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.window-button {
+  padding: .575rem;
+  background-color: var(--os9-lavender);
+  background-image: linear-gradient(to bottom right, #9A9A9A, #F1F1F1);
+  border: 3px solid var(--black-900);
+  border-top: 4px solid var(--black-900);
+  position: relative;
+  cursor: pointer;
+  transition: border 0.15s ease-in;
+  
+  &:hover {
+    background-image: linear-gradient(to bottom right, #F1F1F1, #9A9A9A);
+    
+    &::before {
+      border-top: 2px solid var(--os9-grey-800);
+      border-left: 2px solid var(--os9-grey-800);
+      border-right: 2px solid var(--white);
+      border-bottom: 2px solid var(--white);
+    }
+  }
+  
+  &:focus {
+    outline: 2px dashed red;
+    outline-offset: 2px;
+  }
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-top: 2px solid var(--white);
+    border-left: 2px solid var(--white);
+    border-right: 2px solid var(--os9-grey-800);
+    border-bottom: 2px solid var(--os9-grey-800);
+  }
+}
+
+.window-name {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 4px;
+    width: 100%;
+    margin-right: 4px;
+    height: 24px;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--os9-grey-800) 0px,
+      var(--os9-grey-800) 1px,
+      var(--os9-grey-800) 1px,
+      var(--os9-grey-200) 2px,
+      transparent 4px
+    );
+  }
+  
+  & span {
+    background-color: var(--os9-grey-400);
+    z-index: 100;
+    position: relative;
+    padding: 0 8px;
+    display: inline-block;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: var(--os9-grey-400);
+      width: 100%;
+      height: 6px;
+      top: -6px;
+      left: 0;
+    }
+    
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: var(--os9-grey-400);
+      width: 100%;
+      height: 6px;
+      bottom: -6px;
+      left: 0;
+    }
+  }
+}
+
+.window-body {
+  padding: 4px;
+}

@@ -1,0 +1,23 @@
+:root {
+  /* Colors */
+  --white: #fff;
+  --black-900: #262626;
+  --os9-lavender: #CCCCFF;
+  --os9-azul: #333399;
+  --os9-grey-200: #EEEEEE;
+  --os9-grey-300: #DDDDDD;
+  --os9-grey-400: #CCCCCC;
+  --os9-grey-500: #BBBBBB;
+  --os9-grey-600: #999999;
+  --os9-grey-700: #808080;
+  --os9-grey-800: #666666;
+  --os9-pink: #000000;
+  
+  /* Spacing & Layout */
+  --corners: 24px;
+  --base-unit: 1rem;
+  
+  /* Typography */
+  --font-primary: "Inter", sans-serif;
+  --font-serif: "Merriweather", serif;
+}
