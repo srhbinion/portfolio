@@ -1,0 +1,183 @@
+/*.sticky {
+  background-color: var(--os9-plum);
+  border: 1px solid rebeccapurple;
+}
+
+.sticky-note {
+  width: 350px;
+  min-height: 150px;
+  position: absolute;
+  font-family: var(--font-primary);
+  font-size: .75rem;
+  padding: 1rem;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  line-height: 1.4;
+  color: var(--black-900);
+  overflow: auto;
+  position: relative;
+}
+  */
+
+
+/* Sticky Notes Component Styles */
+
+:root {
+  --sticky-yellow: #ffffcc;
+  --sticky-yellow-shadow: #e6d84d;
+  --sticky-pink: #ffcce6;
+  --sticky-pink-shadow: #ffb3d9;
+  --sticky-teal: #ccf5f5;
+  --sticky-teal-shadow: #99e6e6;
+  
+  --shadow-sm: 3px 3px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 4px 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 6px 6px 16px rgba(0, 0, 0, 0.3);
+  
+  --breakpoint-tablet: 768px;
+}
+
+/* Container */
+#sticky-notes-container {
+  width: 100%;
+  min-height: 100vh;
+  overflow: auto;
+  position: relative;
+}
+
+/* Mobile Header */
+.mobile-header {
+  padding: 20px;
+  text-align: center;
+  color: white;
+
+  & h1 {
+    margin: 0 0 8px 0;
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  & p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+  }
+}
+
+/* Notes Wrapper */
+.notes-wrapper {
+  padding: 20px;
+
+  &.mobile-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &.desktop-canvas {
+    position: relative;
+    min-height: 100vh;
+  }
+}
+
+/* Base Sticky Note Styles */
+.sticky-note {
+  font-family: "Geneva", "Charcoal", "Chicago", -apple-system, sans-serif;
+  font-size: 14px;
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  line-height: 1.5;
+  color: #000;
+  user-select: none;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  &.dragging {
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+  }
+
+  & h4 {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  & ul {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  & li {
+    margin: 4px 0;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+  .sticky-note {
+    position: absolute;
+    width: 220px;
+    min-height: 150px;
+    cursor: grab;
+
+    &.dragging {
+      cursor: grabbing;
+    }
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .sticky-note {
+    position: relative;
+    width: 100%;
+    min-height: 120px;
+  }
+}
+
+/* Color Variants - Yellow */
+.sticky-yellow {
+  background: var(--sticky-yellow);
+  box-shadow: var(--shadow-sm), inset 0 -4px 0 var(--sticky-yellow-shadow);
+
+  &:hover {
+    box-shadow: var(--shadow-md), inset 0 -4px 0 var(--sticky-yellow-shadow);
+  }
+
+  &.dragging {
+    box-shadow: var(--shadow-lg), inset 0 -4px 0 var(--sticky-yellow-shadow);
+  }
+}
+
+/* Color Variants - Pink */
+.sticky-pink {
+  background: var(--sticky-pink);
+  box-shadow: var(--shadow-sm), inset 0 -4px 0 var(--sticky-pink-shadow);
+
+  &:hover {
+    box-shadow: var(--shadow-md), inset 0 -4px 0 var(--sticky-pink-shadow);
+  }
+
+  &.dragging {
+    box-shadow: var(--shadow-lg), inset 0 -4px 0 var(--sticky-pink-shadow);
+  }
+}
+
+/* Color Variants - Teal */
+.sticky-teal {
+  background: var(--sticky-teal);
+  box-shadow: var(--shadow-sm), inset 0 -4px 0 var(--sticky-teal-shadow);
+
+  &:hover {
+    box-shadow: var(--shadow-md), inset 0 -4px 0 var(--sticky-teal-shadow);
+  }
+
+  &.dragging {
+    box-shadow: var(--shadow-lg), inset 0 -4px 0 var(--sticky-teal-shadow);
+  }
+}

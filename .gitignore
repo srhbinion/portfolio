@@ -10,6 +10,10 @@ coverage/
 # Eleventy
 _site/
 
+# Compiled JavaScript (generated from TypeScript)
+src/assets/js/**/*.js
+!src/assets/js/**/*.test.js
+
 # Misc
 .DS_Store
 .env

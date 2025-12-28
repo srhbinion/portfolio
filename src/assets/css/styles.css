@@ -6,6 +6,7 @@
 /* Components */
 @import './02components/window.css';
 @import './02components/navigation.css';
+@import './02components/sticky.css';
 
 /* Utilities */
 @import './03utilites/accessibility.css';

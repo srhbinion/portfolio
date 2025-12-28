@@ -1,19 +1,25 @@
-<section style="border:1px solid blue;">
-  <h3 class="font-header font-semibold text-xl uppercase mb-6">Skills</h3>
-  {% for skill in author.skills %}
-    <div class="pb-8">
-      <h4 class="font-header font-semibold uppercase mb-3">{{ skill.type }}</h4>
-      <ul class="flex flex-wrap mt-2">
-        {% for tool in skill.tools %}
-          <li class="relative inline-block mb-1 mr-1 "><span
-          class="flex items-center subpixel-antialiased highlight px-3 py-1 font-header font-light text-xl md:text-1xl text-lead-text transition-color duration-200 ease-in-out">{{ tool.language }}
-            {% if tool.icon %}
-              &nbsp;{{ tool.icon | safe }}
-            {% endif %}
-            </span>
-          </li>
-        {% endfor %}
-      </ul>
+<section id="sticky-notes-container">
+  <div class="notes-wrapper desktop-canvas">
+      {% for skill in author.skills %}
+        {% set colors = ['yellow', 'pink', 'teal'] %}
+        {% set colorIndex = loop.index0 % 3 %}
+        {% set xPos = 50 + (loop.index0 * 280) %}
+        {% set yPos = 50 + ((loop.index0 // 3) * 200) %}
+        
+        <div class="sticky-note sticky-{{ colors[colorIndex] }}" 
+             data-note-id="{{ loop.index }}"
+             style="left: {{ xPos }}px; top: {{ yPos }}px;">
+          <h4 style="margin: 0 0 12px 0; font-size: 16px; font-weight: 600;">
+            {{ skill.typeSkills }}
+          </h4>
+          <ul style="margin: 0; padding-left: 20px; list-style: disc;">
+            {% for tool in skill.tools %}
+              <li style="margin-bottom: 4px;">
+                {{ tool.keyword }}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
     </div>
-  {% endfor %}
 </section>

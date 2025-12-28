@@ -14,10 +14,10 @@
   --os9-pink: #000000;
   
   /* Spacing & Layout */
-  --corners: 24px;
+  --corners: 2rem;
   --base-unit: 1rem;
   
   /* Typography */
-  --font-primary: "Inter", sans-serif;
+  --font-primary: "Inter", "Geneva", "Charcoal", "Chicago", -apple-system, sans-serif;
   --font-serif: "Merriweather", serif;
 }

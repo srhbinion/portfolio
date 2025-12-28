@@ -5,18 +5,16 @@
   "description": "A sight about Sarah Binion",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel css:watch eleventy:serve",
-    "build": "npm run css:build && eleventy --input=src --output=_site",
-    "watch": "npm-run-all --parallel css:watch eleventy:watch",
-    "css:build": "postcss src/assets/css/main.css -o _site/assets/css/main.css",
-    "css:watch": "postcss src/assets/css/main.css -o _site/assets/css/main.css --watch",
-    "eleventy:serve": "npx @11ty/eleventy --serve",
-    "eleventy:watch": "npx @11ty/eleventy --watch",
-    "bench": "DEBUG=Eleventy:Benchmark* npx @11ty/eleventy",
+    "start": "npm-run-all --parallel css:watch js:watch eleventy:serve",
+    "build": "npm run js:build && npm run css:build && eleventy --input=src --output=_site",
+    "js:build": "tsc",
+    "js:watch": "tsc --watch",
+    "css:build": "postcss src/assets/css/styles.css -o _site/assets/css/styles.css",
+    "css:watch": "postcss src/assets/css/styles.css -o _site/assets/css/styles.css --watch",
+    "eleventy:serve": "eleventy --serve --input=src --output=_site",
+    "bench": "DEBUG=Eleventy:Benchmark* eleventy --input=src --output=_site",
     "test": "vitest",
-    "test:ui": "vitest --ui",
-    "test:coverage": "vitest --coverage",
-    "test:run": "vitest --run"
+    "test:coverage": "vitest --coverage"
   },
   "keywords": [
     "template",
