@@ -5,10 +5,10 @@
   "description": "A sight about Sarah Binion",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel css:watch js:watch eleventy:serve",
-    "build": "npm run js:build && npm run css:build && eleventy --input=src --output=_site",
-    "js:build": "tsc",
-    "js:watch": "tsc --watch",
+    "start": "npm-run-all --parallel css:watch vite:dev eleventy:serve",
+    "build": "npm run vite:build && npm run css:build && eleventy --input=src --output=_site",
+    "vite:dev": "vite build --watch",
+    "vite:build": "vite build",
     "css:build": "postcss src/assets/css/styles.css -o _site/assets/css/styles.css",
     "css:watch": "postcss src/assets/css/styles.css -o _site/assets/css/styles.css --watch",
     "eleventy:serve": "eleventy --serve --input=src --output=_site",
@@ -48,9 +48,11 @@
     "postcss-preset-env": "^10.0.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
+    "vite": "^7.3.0",
     "vitest": "^4.0.16"
   },
   "dependencies": {
+    "@atlaskit/pragmatic-drag-and-drop": "^1.7.7",
     "netlify-cli": "^23.12.3"
   }
 }

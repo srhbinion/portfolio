@@ -1,20 +1,17 @@
-/**
- * Initialize all components when DOM is ready
- * This file handles auto-initialization of components on page load
-*/
-
 import { MenuDropdown } from './components/menu/MenuDropdown.js';
-import { StickyNotesManager } from './components/stickies/StickyNotesManager.js';
+import { initDragList } from './modules/DragNDrop/drag-drop.js';
+import { StickyNotesManager} from './components/stickies/StickyNotesManager.js';
 
 document.addEventListener('DOMContentLoaded', (): void => {
-  console.log('🚀 DOM loaded');
-  new MenuDropdown();
-
-  if (document.getElementById('sticky-notes-container')) {
-    console.log('✅ Container found, initializing...');
-    const manager = new StickyNotesManager();
-    console.log('✅ Manager created:', manager);
-  } else {
-    console.log('❌ Container NOT found');
+  console.log('🚀 Initializing app...');
+  console.log('📄 Document ready state:', document.readyState);
+  console.log('🔍 Checking for #list:', document.getElementById('list'));
+  
+  try {
+    new MenuDropdown();
+    new StickyNotesManager();
+    initDragList();
+  } catch (error) {
+    console.error('❌ Error initializing app:', error);
   }
 });

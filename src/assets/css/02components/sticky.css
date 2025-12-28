@@ -19,58 +19,23 @@
   */
 
 
-/* Sticky Notes Component Styles */
 
-:root {
-  --sticky-yellow: #ffffcc;
-  --sticky-yellow-shadow: #e6d84d;
-  --sticky-pink: #ffcce6;
-  --sticky-pink-shadow: #ffb3d9;
-  --sticky-teal: #ccf5f5;
-  --sticky-teal-shadow: #99e6e6;
-  
-  --shadow-sm: 3px 3px 8px rgba(0, 0, 0, 0.2);
-  --shadow-md: 4px 4px 12px rgba(0, 0, 0, 0.25);
-  --shadow-lg: 6px 6px 16px rgba(0, 0, 0, 0.3);
-  
-  --breakpoint-tablet: 768px;
-}
-
-/* Container */
 #sticky-notes-container {
   width: 100%;
   min-height: 100vh;
   overflow: auto;
   position: relative;
+  border: 10px solid red;
 }
 
-/* Mobile Header */
-.mobile-header {
-  padding: 20px;
-  text-align: center;
-  color: white;
 
-  & h1 {
-    margin: 0 0 8px 0;
-    font-size: 28px;
-    font-weight: 600;
-  }
-
-  & p {
-    margin: 0;
-    font-size: 14px;
-    opacity: 0.9;
-  }
-}
-
-/* Notes Wrapper */
 .notes-wrapper {
   padding: 20px;
 
   &.mobile-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: var(--base-unit);
     max-width: 600px;
     margin: 0 auto;
   }
@@ -83,12 +48,12 @@
 
 /* Base Sticky Note Styles */
 .sticky-note {
-  font-family: "Geneva", "Charcoal", "Chicago", -apple-system, sans-serif;
-  font-size: 14px;
-  padding: 16px;
+  font-family: var(--font-primary);
+  font-size: .75rem;
+  padding: var(--base-unit);
   box-shadow: var(--shadow-sm);
   line-height: 1.5;
-  color: #000;
+  color: var(--black-900);
   user-select: none;
   transition: box-shadow 0.2s ease;
 
@@ -103,7 +68,7 @@
 
   & h4 {
     margin: 0 0 12px 0;
-    font-size: 16px;
+    font-size: var(base-unit);
     font-weight: 600;
   }
 
@@ -179,5 +144,19 @@
 
   &.dragging {
     box-shadow: var(--shadow-lg), inset 0 -4px 0 var(--sticky-teal-shadow);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .sticky-note {
+    transition: none;
+  }
+}
+
+/* Dark Mode Support (if needed) */
+@media (prefers-color-scheme: dark) {
+  #sticky-notes-container {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
   }
 }

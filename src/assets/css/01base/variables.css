@@ -11,11 +11,24 @@
   --os9-grey-600: #999999;
   --os9-grey-700: #808080;
   --os9-grey-800: #666666;
-  --os9-pink: #000000;
+  --sticky-yellow: #ffffcc;
+  --sticky-yellow-shadow: #e6d84d;
+  --sticky-pink: #ffcce6;
+  --sticky-pink-shadow: #ffb3d9;
+  --sticky-teal: #ccf5f5;
+  --sticky-teal-shadow: #99e6e6;
   
   /* Spacing & Layout */
   --corners: 2rem;
   --base-unit: 1rem;
+
+  /* Shadows */
+  --shadow-sm: 3px 3px 8px rgba(0, 0, 0, 0.2);
+  --shadow-md: 4px 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 6px 6px 16px rgba(0, 0, 0, 0.3);
+
+    /* Breakpoints */
+  --breakpoint-tablet: 768px;
   
   /* Typography */
   --font-primary: "Inter", "Geneva", "Charcoal", "Chicago", -apple-system, sans-serif;

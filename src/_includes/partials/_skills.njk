@@ -1,25 +1,24 @@
-<section id="sticky-notes-container">
-  <div class="notes-wrapper desktop-canvas">
+<section class="sicky" aria-label="Skills showcase">
+  <div id="sticky-notes-container">
+    <div class="notes-wrapper desktop-canvas">
       {% for skill in author.skills %}
-        {% set colors = ['yellow', 'pink', 'teal'] %}
-        {% set colorIndex = loop.index0 % 3 %}
-        {% set xPos = 50 + (loop.index0 * 280) %}
-        {% set yPos = 50 + ((loop.index0 // 3) * 200) %}
-        
-        <div class="sticky-note sticky-{{ colors[colorIndex] }}" 
-             data-note-id="{{ loop.index }}"
-             style="left: {{ xPos }}px; top: {{ yPos }}px;">
-          <h4 style="margin: 0 0 12px 0; font-size: 16px; font-weight: 600;">
-            {{ skill.typeSkills }}
-          </h4>
-          <ul style="margin: 0; padding-left: 20px; list-style: disc;">
-            {% for tool in skill.tools %}
-              <li style="margin-bottom: 4px;">
-                {{ tool.keyword }}
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
+        <article 
+          class="sticky-note" 
+          data-note-id="{{ loop.index }}"
+          role="article"
+          aria-label="{{ skill.typeSkills }} skills">
+          
+          <h4>{{ skill.typeSkills }}</h4>
+          
+          {% if skill.tools and skill.tools.length > 0 %}
+            <ul>
+              {% for tool in skill.tools %}
+                <li>{{ tool.keyword }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </article>
       {% endfor %}
     </div>
+  </div>
 </section>
