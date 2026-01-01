@@ -110,5 +110,27 @@
 }
 
 .window-body {
-  padding: 4px;
+  margin: 0 4px 4px 4px;
+  border: 2px solid var(--black-900);
+  border-top: 2px solid transparent;
+  margin-top: -2px;
+  position: relative;
+  &::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: -6px;
+    top: -2px;
+    padding: 2px;
+    background:var(--os9-grey-400);
+  }
+  &::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    right: -6px;
+    top: -2px;
+    padding: 2px;
+    background-color: var(--os9-grey-400);
+  }
 }

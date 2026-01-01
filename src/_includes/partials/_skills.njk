@@ -1,24 +1,28 @@
-<section class="sicky" aria-label="Skills showcase">
-  <div id="sticky-notes-container">
-    <div class="notes-wrapper desktop-canvas">
-      {% for skill in author.skills %}
-        <article 
-          class="sticky-note" 
-          data-note-id="{{ loop.index }}"
-          role="article"
-          aria-label="{{ skill.typeSkills }} skills">
-          
-          <h4>{{ skill.typeSkills }}</h4>
-          
-          {% if skill.tools and skill.tools.length > 0 %}
-            <ul>
-              {% for tool in skill.tools %}
-                <li>{{ tool.keyword }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </article>
-      {% endfor %}
+<section id="sticky-notes-container" aria-label="Skills showcase">
+  <div class="notes-wrapper desktop-canvas">
+
+    {% for skill in author.skills %}
+
+      <article 
+        class="sticky-note" 
+        data-note-id="{{ loop.index }}"
+        role="article"
+        aria-label="{{ skill.typeSkills }} skills">
+        <h4>{{ skill.typeSkills }}</h4>
+        {% if skill.tools and skill.tools.length > 0 %}
+          <ul>
+            {% for tool in skill.tools %}
+              <li>{{ tool.keyword }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </article>
+
+    {% endfor %}
+
+    <div class="sticky-note" data-note-id="4">
+      {% include "partials/_window.njk" %}
     </div>
+    
   </div>
 </section>
