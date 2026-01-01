@@ -7,23 +7,23 @@ describe('StickyNotesManager', () => {
   beforeEach(() => {
     // Set up DOM structure
     document.body.innerHTML = `
-      <div id="sticky-notes-container">
+      <div id="draggable-container">
         <div class="notes-wrapper desktop-canvas">
-          <div class="sticky-note" data-note-id="1">
+          <div class="sticky-note">
             <h4>Frontend</h4>
             <ul>
               <li>React</li>
               <li>TypeScript</li>
             </ul>
           </div>
-          <div class="sticky-note" data-note-id="2">
+          <div class="sticky-note">
             <h4>Backend</h4>
             <ul>
               <li>Node.js</li>
               <li>Python</li>
             </ul>
           </div>
-          <div class="sticky-note" data-note-id="3">
+          <div class="sticky-note">
             <h4>DevOps</h4>
             <ul>
               <li>Docker</li>
@@ -33,7 +33,7 @@ describe('StickyNotesManager', () => {
         </div>
       </div>
     `;
-    container = document.getElementById('sticky-notes-container')!;
+    container = document.getElementById('draggable-container')!;
     
     // Mock window.innerWidth for desktop view
     Object.defineProperty(window, 'innerWidth', {
@@ -57,28 +57,6 @@ describe('StickyNotesManager', () => {
     it('should find the container element', () => {
       new StickyNotesManager();
       expect(container).toBeTruthy();
-    });
-
-    it('should assign random colors to notes', () => {
-      new StickyNotesManager();
-      const notes = document.querySelectorAll('.sticky-note');
-      
-      notes.forEach(note => {
-        const hasColor = note.classList.contains('sticky-yellow') ||
-                        note.classList.contains('sticky-pink') ||
-                        note.classList.contains('sticky-teal');
-        expect(hasColor).toBe(true);
-      });
-    });
-
-    it('should position notes randomly on desktop', () => {
-      new StickyNotesManager();
-      const notes = document.querySelectorAll('.sticky-note') as NodeListOf<HTMLElement>;
-      
-      notes.forEach(note => {
-        expect(note.style.left).toBeTruthy();
-        expect(note.style.top).toBeTruthy();
-      });
     });
   });
 
@@ -188,7 +166,7 @@ describe('StickyNotesManager', () => {
 
     it('should handle empty notes list', () => {
       document.body.innerHTML = `
-        <div id="sticky-notes-container">
+        <div id="draggable-container">
           <div class="notes-wrapper desktop-canvas"></div>
         </div>
       `;

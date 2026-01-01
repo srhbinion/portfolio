@@ -35,7 +35,12 @@
         { "keyword": "Storybook,Tailwind CSS, PostCSS, ESLint & Prettier" },
         { "keyword": "Sentry, Vite, GitHub Actions, Netlify & Webpack" },
         { "keyword": "GitHub Copilot, Cursor & Claude" }
-      ]
+      ],
+      "startPosition": {
+        "x": "40",
+        "y": "30"
+      },
+      "color": "sticky-yellow"
     },
     {
       "typeSkills": "Product & Web Excellence",
@@ -47,7 +52,12 @@
         { "keyword": "GDPR Compliance" },
         { "keyword": "Accessibility Compliance" },
         { "keyword": "Figma" }
-      ]
+      ],
+      "startPosition": {
+        "x": "250",
+        "y": "360"
+      },
+      "color": "sticky-pink"
     },
     {
       "typeSkills": "Leadership & Strategy",
@@ -59,7 +69,12 @@
         { "keyword": "Data-Driven Decision Making" },
         { "keyword": "Roadmapping & Prioritization" },
         { "keyword": "Culture & Career Growth" }
-      ]
+      ],
+      "startPosition": {
+        "x": "560",
+        "y": "107"
+      },
+      "color": "sticky-teal"
     }
   ]
 }

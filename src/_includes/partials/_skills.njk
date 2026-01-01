@@ -1,13 +1,10 @@
-<section id="sticky-notes-container" aria-label="Skills showcase">
+<section id="draggable-container" aria-label="Skills showcase">
   <div class="notes-wrapper desktop-canvas">
-
+    <div class="draggable-item" data-x="800" data-y="20">
+      {% include "partials/_window.njk" %}
+    </div>
     {% for skill in author.skills %}
-
-      <article 
-        class="sticky-note" 
-        data-note-id="{{ loop.index }}"
-        role="article"
-        aria-label="{{ skill.typeSkills }} skills">
+      <article class="draggable-item sticky-note {{skill.color}}" role="article" aria-label="{{ skill.typeSkills }} skills" data-x="{{skill.startPosition.x}}" data-y="{{skill.startPosition.y}}">
         <h4>{{ skill.typeSkills }}</h4>
         {% if skill.tools and skill.tools.length > 0 %}
           <ul>
@@ -17,12 +14,6 @@
           </ul>
         {% endif %}
       </article>
-
-    {% endfor %}
-
-    <div class="sticky-note" data-note-id="4">
-      {% include "partials/_window.njk" %}
-    </div>
-    
+    {% endfor %}  
   </div>
 </section>

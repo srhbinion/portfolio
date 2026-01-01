@@ -23,15 +23,10 @@ interface StickyNotesConfig {
     desktop: string;
     mobile: string;
     dragging: string;
-    colorPrefix: string;
   };
   layout: {
     desktopBreakpoint: number;
-    padding: number;
-    noteWidth: number;
-    noteHeight: number;
   };
-  colors: string[];
 }
 
 /* =========================
@@ -40,23 +35,18 @@ interface StickyNotesConfig {
 
 const STICKY_NOTES: StickyNotesConfig = {
   selectors: {
-    container: '#sticky-notes-container',
+    container: '#draggable-container',
     wrapper: '.notes-wrapper',
-    note: '.sticky-note',
+    note: '.draggable-item',
   },
   classes: {
     desktop: 'desktop-canvas',
     mobile: 'mobile-list',
     dragging: 'dragging',
-    colorPrefix: 'sticky-',
   },
   layout: {
     desktopBreakpoint: 768,
-    padding: 40,
-    noteWidth: 220,
-    noteHeight: 150,
-  },
-  colors: ['yellow', 'pink', 'teal'],
+  }
 };
 
 /* =========================
@@ -126,8 +116,6 @@ export class StickyNotesManager {
   private init(): void {
     this.updateViewportMode();
     this.applyLayout();
-    this.assignColors();
-
     if (this.isDesktop) {
       this.positionNotes();
       this.bindDragEvents();
@@ -158,31 +146,24 @@ export class StickyNotesManager {
     );
   }
 
-  private assignColors(): void {
-    this.notes.forEach((note) => {
-      const color =
-        this.config.colors[
-          Math.floor(Math.random() * this.config.colors.length)
-        ];
-      note.classList.add(`${this.config.classes.colorPrefix}${color}`);
-    });
-  }
-
   private positionNotes(): void {
     if (!this.container) return;
 
     const rect = this.container.getBoundingClientRect();
-    const { padding, noteWidth, noteHeight } = this.config.layout;
 
     this.notes.forEach((note) => {
-      const maxX = rect.width - noteWidth - padding;
-      const maxY = rect.height - noteHeight - padding;
+      const dataLeft = note.getAttribute('data-x');
+      const dataTop = note.getAttribute('data-y');
 
-      note.style.left = `${Math.random() * maxX + padding}px`;
-      note.style.top = `${Math.random() * maxY + padding}px`;
+      if (dataLeft !== null && dataTop !== null) {
+        // Use specified position
+        note.style.left = `${dataLeft}px`;
+        note.style.top = `${dataTop}px`;
+      } else {
+        return
+      }
     });
   }
-
   /* =========================
      Drag Handling
   ========================= */
@@ -203,12 +184,24 @@ export class StickyNotesManager {
     document.addEventListener('touchend', this.handleTouchEnd);
   }
 
+  private isClickableElement(el: HTMLElement): boolean {
+    const clickableTags = ['A', 'BUTTON', 'INPUT', 'TEXTAREA', 'SELECT'];
+    return clickableTags.includes(el.tagName) || 
+           el.closest('a, button, input, textarea, select') !== null;
+  }
+
   private handleMouseDown(e: MouseEvent): void {
+    const target = e.target as HTMLElement;
+    if (this.isClickableElement(target)) return;
+
     this.startDrag(e.currentTarget as HTMLElement, e.clientX, e.clientY);
     e.preventDefault();
   }
 
   private handleTouchStart(e: TouchEvent): void {
+    const target = e.target as HTMLElement;
+    if (this.isClickableElement(target)) return;
+  
     const t = e.touches[0];
     this.startDrag(e.currentTarget as HTMLElement, t.clientX, t.clientY);
     e.preventDefault();

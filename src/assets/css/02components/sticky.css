@@ -19,13 +19,12 @@
   */
 
 
-
-#sticky-notes-container {
+#draggable-container {
   width: 100%;
   min-height: 100vh;
   overflow: auto;
   position: relative;
-  border: 10px solid red;
+  border: 10px solid yellow;
 }
 
 
@@ -43,6 +42,23 @@
   &.desktop-canvas {
     position: relative;
     min-height: 100vh;
+  }
+}
+
+/* Base Sticky Note Styles */
+.draggable-item {
+  box-shadow: var(--shadow-sm);
+  user-select: none;
+  transition: box-shadow 0.2s ease;
+  z-index: 2;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  &.dragging {
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
   }
 }
 
@@ -85,9 +101,12 @@
 /* Desktop Styles */
 @media (min-width: 769px) {
   .sticky-note {
-    position: absolute;
-    width: 220px;
     min-height: 150px;
+    min-width: 300px;
+  }
+
+  .draggable-item {
+    position: absolute;
     cursor: grab;
 
     &.dragging {
@@ -99,9 +118,11 @@
 /* Mobile Styles */
 @media (max-width: 768px) {
   .sticky-note {
+    min-height: 120px;
+  }
+  .draggable-item {
     position: relative;
     width: 100%;
-    min-height: 120px;
   }
 }
 
@@ -156,7 +177,7 @@
 
 /* Dark Mode Support (if needed) */
 @media (prefers-color-scheme: dark) {
-  #sticky-notes-container {
+  #draggable-container {
     background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
   }
 }

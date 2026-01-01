@@ -35,11 +35,11 @@
       border-right: 2px solid var(--white);
       border-bottom: 2px solid var(--white);
     }
-   a {
+   li {
       color: var(--os9-grey-800);
     }
   }
-  & a {
+  & li {
     display: inline-block;
     height: 100%;
     width: 100%;
