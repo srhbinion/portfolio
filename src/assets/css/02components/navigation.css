@@ -11,6 +11,7 @@ nav {
   padding-left: 1rem;
   max-height: 48px;
   margin: 0 auto;
+  z-index: 100;
 }
 
 .nav-list {
