@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { StickyNotesManager } from './StickyNotesManager';
+import { DragDropManager } from './DragDropManager';
 
-describe('StickyNotesManager', () => {
+describe('DragDropManager', () => {
   let container: HTMLElement;
 
   beforeEach(() => {
@@ -50,12 +50,12 @@ describe('StickyNotesManager', () => {
 
   describe('Initialization', () => {
     it('should create an instance successfully', () => {
-      const manager = new StickyNotesManager();
-      expect(manager).toBeInstanceOf(StickyNotesManager);
+      const manager = new DragDropManager();
+      expect(manager).toBeInstanceOf(DragDropManager);
     });
 
     it('should find the container element', () => {
-      new StickyNotesManager();
+      new DragDropManager();
       expect(container).toBeTruthy();
     });
   });
@@ -68,7 +68,7 @@ describe('StickyNotesManager', () => {
         value: 1024
       });
 
-      new StickyNotesManager();
+      new DragDropManager();
       const wrapper = document.querySelector('.notes-wrapper');
       
       expect(wrapper?.classList.contains('desktop-canvas')).toBe(true);
@@ -82,7 +82,7 @@ describe('StickyNotesManager', () => {
         value: 375
       });
 
-      new StickyNotesManager();
+      new DragDropManager();
       const wrapper = document.querySelector('.notes-wrapper');
       
       expect(wrapper?.classList.contains('mobile-list')).toBe(true);
@@ -92,7 +92,7 @@ describe('StickyNotesManager', () => {
 
   describe('Drag and Drop', () => {
     it('should add dragging class on mousedown', () => {
-      new StickyNotesManager();
+      new DragDropManager();
       const note = document.querySelector('.sticky-note') as HTMLElement;
       
       const mouseDownEvent = new MouseEvent('mousedown', {
@@ -106,7 +106,7 @@ describe('StickyNotesManager', () => {
     });
 
     it('should remove dragging class on mouseup', () => {
-      new StickyNotesManager();
+      new DragDropManager();
       const note = document.querySelector('.sticky-note') as HTMLElement;
       
       const mouseDownEvent = new MouseEvent('mousedown', {
@@ -125,7 +125,7 @@ describe('StickyNotesManager', () => {
     });
 
     it('should update note position on mousemove', () => {
-      new StickyNotesManager();
+      new DragDropManager();
       const note = document.querySelector('.sticky-note') as HTMLElement;
       
       const initialLeft = note.style.left;
@@ -155,7 +155,7 @@ describe('StickyNotesManager', () => {
       document.body.innerHTML = '<div></div>';
       
       const consoleSpy = vi.spyOn(console, 'warn');
-      new StickyNotesManager({ selectors: {
+      new DragDropManager({ selectors: {
         container: 'non-existent-id',
         wrapper: '',
         note: ''
@@ -171,14 +171,14 @@ describe('StickyNotesManager', () => {
         </div>
       `;
       
-      const manager = new StickyNotesManager();
-      expect(manager).toBeInstanceOf(StickyNotesManager);
+      const manager = new DragDropManager();
+      expect(manager).toBeInstanceOf(DragDropManager);
     });
   });
 
   describe('Cleanup', () => {
     it('should remove event listeners on destroy', () => {
-      const manager = new StickyNotesManager();
+      const manager = new DragDropManager();
       const removeEventListenerSpy = vi.spyOn(document, 'removeEventListener');
       
       manager.destroy();

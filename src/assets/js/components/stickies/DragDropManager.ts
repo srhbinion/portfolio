@@ -13,7 +13,7 @@ interface DragState {
   offset: Position;
 }
 
-interface StickyNotesConfig {
+interface DragContainerConfig {
   selectors: {
     container: string;
     wrapper: string;
@@ -33,7 +33,7 @@ interface StickyNotesConfig {
    Default Config
 ========================= */
 
-const STICKY_NOTES: StickyNotesConfig = {
+const DRAG_CONTAINER: DragContainerConfig = {
   selectors: {
     container: '#draggable-container',
     wrapper: '.notes-wrapper',
@@ -50,11 +50,11 @@ const STICKY_NOTES: StickyNotesConfig = {
 };
 
 /* =========================
-   Sticky Notes Manager
+   Drag Drop Manager
 ========================= */
 
-export class StickyNotesManager {
-  private config: StickyNotesConfig;
+export class DragDropManager {
+  private config: DragContainerConfig;
 
   private container: HTMLElement | null = null;
   private wrapper: HTMLElement | null = null;
@@ -69,18 +69,18 @@ export class StickyNotesManager {
 
   private isInitialized = false;
 
-  constructor(config: Partial<StickyNotesConfig> = {}) {
+  constructor(config: Partial<DragContainerConfig> = {}) {
     this.config = {
-      ...STICKY_NOTES,
+      ...DRAG_CONTAINER,
       ...config,
-      selectors: { ...STICKY_NOTES.selectors, ...config.selectors },
-      classes: { ...STICKY_NOTES.classes, ...config.classes },
-      layout: { ...STICKY_NOTES.layout, ...config.layout },
+      selectors: { ...DRAG_CONTAINER.selectors, ...config.selectors },
+      classes: { ...DRAG_CONTAINER.classes, ...config.classes },
+      layout: { ...DRAG_CONTAINER.layout, ...config.layout },
     };
 
     this.cacheDom();
     if (!this.container || !this.wrapper) {
-      console.warn('Sticky notes elements not found');
+      console.warn('No elements found to move around');
       return;
     }
 
