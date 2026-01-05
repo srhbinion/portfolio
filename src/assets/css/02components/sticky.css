@@ -1,72 +1,7 @@
-/*.sticky {
-  background-color: var(--os9-plum);
-  border: 1px solid rebeccapurple;
-}
-
-.sticky-note {
-  width: 350px;
-  min-height: 150px;
-  position: absolute;
-  font-family: var(--font-primary);
-  font-size: .75rem;
-  padding: 1rem;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  line-height: 1.4;
-  color: var(--black-900);
-  overflow: auto;
-  position: relative;
-}
-  */
-
-
-#draggable-container {
-  width: 100%;
-  min-height: 100vh;
-  overflow: auto;
-  position: relative;
-  border: 10px solid yellow;
-}
-
-
-.notes-wrapper {
-  padding: 20px;
-
-  &.mobile-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--base-unit);
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  &.desktop-canvas {
-    position: relative;
-    min-height: 100vh;
-  }
-}
-
-/* Base Sticky Note Styles */
-.draggable-item {
-  box-shadow: var(--shadow-sm);
-  user-select: none;
-  transition: box-shadow 0.2s ease;
-  z-index: 2;
-
-  &:hover {
-    box-shadow: var(--shadow-md);
-  }
-
-  &.dragging {
-    box-shadow: var(--shadow-lg);
-    z-index: 1000;
-  }
-}
-
-/* Base Sticky Note Styles */
 .sticky-note {
   font-family: var(--font-primary);
   font-size: .75rem;
-  padding: var(--base-unit);
+  padding: 2rem;
   box-shadow: var(--shadow-sm);
   line-height: 1.5;
   color: var(--black-900);
@@ -83,18 +18,28 @@
   }
 
   & h4 {
-    margin: 0 0 12px 0;
-    font-size: var(base-unit);
+    margin-bottom: var(--base-unit);
+    font-family: var(--font-primary);
+    font-style: bold;
     font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--black-900);
   }
 
   & ul {
     margin: 0;
-    padding-left: 20px;
+    padding: 0 var(--base-unit);
   }
 
   & li {
     margin: 4px 0;
+    font-family: var(--font-primary);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--black-900);
   }
 }
 
@@ -104,25 +49,12 @@
     min-height: 150px;
     min-width: 300px;
   }
-
-  .draggable-item {
-    position: absolute;
-    cursor: grab;
-
-    &.dragging {
-      cursor: grabbing;
-    }
-  }
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
   .sticky-note {
     min-height: 120px;
-  }
-  .draggable-item {
-    position: relative;
-    width: 100%;
   }
 }
 
@@ -172,12 +104,5 @@
 @media (prefers-reduced-motion: reduce) {
   .sticky-note {
     transition: none;
-  }
-}
-
-/* Dark Mode Support (if needed) */
-@media (prefers-color-scheme: dark) {
-  #draggable-container {
-    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
   }
 }

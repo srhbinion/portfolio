@@ -1,101 +1,55 @@
-header {
+.header {
   background-color: var(--os9-grey-300);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
+  position: fixed;
+  width: 100%;
   z-index: 50;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: .5rem 1rem .25rem 1rem;
+  border: 1px solid var(--black-900);
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 1px 0 var(--os9-grey-400);
 }
 
-nav {
-  padding-left: 1rem;
-  max-height: 48px;
-  margin: 0 auto;
-  z-index: 100;
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo {
+  height: 20px;
+  width: 22px;
+  filter: drop-shadow(1px 1px 1px var(--black-900));
+  margin-right: 1rem;
 }
 
 .nav-list {
   list-style: none;
   display: flex;
   align-items: center;
-  height: 60px;
-  gap: 5px;
+  gap: 30px;
 }
 
-.nav-link,
-.dropdown-toggle {
+.nav-link {
   display: block;
-  padding: 1rem;
-  color: var(--black-900);
   text-decoration: none;
-  font-size: 1rem;
-  border: none;
-  background: transparent;
   cursor: pointer;
-  transition: background-color 0.2s;
+  font-family: var(--font-primary);
+  color: var(--black-900);
+  padding: 0 1rem;
+  font-weight: 600;
+  font-size: 1rem;
   
   &:hover {
-    background-color: var(--os9-azul);
-    border-radius: .5rem;
+    background-color: var(--os9-grey-400);
   }
 }
 
-.dropdown-toggle {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  
-  &::after {
-    content: '▼';
-    font-size: 1rem;
-    transition: transform 0.2s;
-  }
-  
-  &[aria-expanded="true"]::after {
-    transform: rotate(180deg);
-  }
-}
 
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: var(--white);
-  border: 1px solid var(--os9-grey-300);
-  border-top: none;
-  border-radius: 0 0 4px 4px;
-  min-width: 180px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-5px);
-  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
-  list-style: none;
-}
-
-.nav-item:hover .dropdown-menu,
-.dropdown-menu.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.dropdown-item {
-  padding: 12px 16px;
-  color: var(--os9-grey-300);
-  text-decoration: none;
-  display: block;
-  transition: background-color 0.2s;
-  
-  &:hover {
-    background-color: var(--os9-azul);
-  }
-  
-  &:first-child {
-    border-radius: 0 0 0 4px;
-  }
-  
-  &:last-child {
-    border-radius: 0 0 4px 0;
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
   }
 }

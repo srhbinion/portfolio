@@ -36,7 +36,7 @@ const TimeDisplay = (config: Partial<TimeDisplayConfig> = {}) => {
       hour12: true,
     });
 
-    return `${dateFormatter.format(date)} ${timeFormatter.format(date)}`;
+    return `${dateFormatter.format(date)} • ${timeFormatter.format(date)}`;
   };
 
   const updateDisplay = (): void => {
@@ -44,7 +44,6 @@ const TimeDisplay = (config: Partial<TimeDisplayConfig> = {}) => {
       `${finalConfig.container} [data-time]`
     );
     if (!timeElement) return;
-
     timeElement.textContent = formatTime();
     timeElement.classList.remove('loading');
   };

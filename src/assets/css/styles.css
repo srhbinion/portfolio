@@ -4,12 +4,14 @@
 @import './01base/typography.css';
 
 /* Components */
-@import './02components/text.css';
-@import './02components/window.css';
 @import './02components/navigation.css';
 @import './02components/sticky.css';
 @import './02components/tabs.css';
-@import './02components/scoll-windown.css';
+@import './02components/scroll-windown.css';
+@import './02components/text.css';
+@import './02components/window.css';
+@import './02components/drag-container.css';
+@import './02components/loading.css';  
 
 /* Utilities */
-@import './03utilites/accessibility.css';
+@import './03utilities/accessibility.css';

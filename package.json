@@ -52,7 +52,6 @@
     "vitest": "^4.0.16"
   },
   "dependencies": {
-    "@atlaskit/pragmatic-drag-and-drop": "^1.7.7",
     "netlify-cli": "^23.12.3"
   }
 }

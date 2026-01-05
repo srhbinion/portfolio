@@ -3,9 +3,16 @@
   font-style: normal;
   font-weight: 400;
   font-size: 1rem;
-  line-height: 1.75;
+  line-height: 1.5;
   color: var(--black-900);
-  color: red;
+}
+
+.text-md {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--black-900);
 }
 
 .text-bold {
@@ -15,7 +22,6 @@
   font-size: 1rem;
   line-height: 1.5;
   color: var(--black-900);
-  color: purple;
 }
 
 .link-btn {
@@ -51,7 +57,7 @@
       height: 100%;
     }
     &:focus {
-      outline: 2px dashed red;
+      outline: 2px dashed var(--os9-azul);
       outline-offset: 4px;
     }
   }

@@ -29,16 +29,11 @@
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | url }}">
     <script type="module" src="{{ '/assets/js/main.js' | url }}" defer></script>
   </head>
-  <body class="">
+  <body>
    {% include "partials/_header.njk" %}
-    <div class="">
-      
-
-      <main>
-        {% include "partials/_skills.njk" %}
-      </main>
-
-    </div>
+    <main>
+      {% include "partials/_skills.njk" %}
+    </main>
     {% include "partials/_schema_org.njk" %}
   </body>
 </html>
