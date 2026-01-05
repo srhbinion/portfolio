@@ -1,15 +1,20 @@
 {
   "name": "11ty-resume-template",
   "version": "1.0.1",
-  "description": "This template can be used to create new resumes with 11ty.",
+  "type": "module",
+  "description": "A sight about Sarah Binion",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all -p dev:*",
-    "build": "run-s build:*",
-    "dev:11ty": "eleventy --serve",
-    "dev:css": "npx tailwindcss@3 -i src/assets/css/tailwind.css -o _site/assets/css/styles.css --watch",
-    "build:11ty": "eleventy",
-    "build:css": "npx tailwindcss -i src/assets/css/tailwind.css -o _site/assets/css/styles.css"
+    "start": "npm-run-all --parallel css:watch vite:dev eleventy:serve",
+    "build": "npm run vite:build && npm run css:build && eleventy --input=src --output=_site",
+    "vite:dev": "vite build --watch",
+    "vite:build": "vite build",
+    "css:build": "postcss src/assets/css/styles.css -o _site/assets/css/styles.css",
+    "css:watch": "postcss src/assets/css/styles.css -o _site/assets/css/styles.css --watch",
+    "eleventy:serve": "eleventy --serve --input=src --output=_site",
+    "bench": "DEBUG=Eleventy:Benchmark* eleventy --input=src --output=_site",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage"
   },
   "keywords": [
     "template",
@@ -18,7 +23,6 @@
     "resume",
     "cv",
     "css",
-    "tailwindcss",
     "postcss",
     "html",
     "javascript",
@@ -26,31 +30,28 @@
     "npm",
     "github"
   ],
-  "author": "",
-  "license": "MIT",
+  "author": "Sarah Binion",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-img": "^6.0.4",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/node": "^25.0.3",
+    "@vitest/coverage-v8": "^4.0.16",
     "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
+    "happy-dom": "^20.0.11",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.19"
+    "postcss-cli": "^11.0.1",
+    "postcss-import": "^16.1.1",
+    "postcss-preset-env": "^10.0.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0",
+    "vitest": "^4.0.16"
   },
   "dependencies": {
     "netlify-cli": "^23.12.3"
-  },
-  "overrides": {
-    "jws": "^4.0.1",
-    "@octokit/endpoint": "^10.1.1",
-    "@octokit/request": "^9.1.3",
-    "@octokit/request-error": "^6.1.5",
-    "brace-expansion": "^2.0.2",
-    "esbuild": "^0.24.3",
-    "glob": "^11.0.0",
-    "nanoid": "^3.3.8",
-    "node-forge": "^1.4.0",
-    "on-headers": "^1.1.0",
-    "tar-fs": "^3.1.1",
-    "tmp": "^0.2.4"
   }
 }
