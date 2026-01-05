@@ -7,7 +7,6 @@ export default function (eleventyConfig) {
 
   // Layouts
   eleventyConfig.addLayoutAlias("base", "base.njk");
-  eleventyConfig.addLayoutAlias("post", "post.njk");
 
   return {
     templateFormats: ["md", "njk", "html", "liquid"],
