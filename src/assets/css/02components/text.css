@@ -42,7 +42,7 @@
       border-bottom: 2px solid var(--white);
     }
    li {
-      color: var(--os9-grey-800);
+      color: var(--os9-azul);
     }
   }
   & li {
