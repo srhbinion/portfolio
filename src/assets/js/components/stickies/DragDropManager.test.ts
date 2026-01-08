@@ -8,7 +8,7 @@ describe('DragDropManager', () => {
     // Set up DOM structure
     document.body.innerHTML = `
       <div id="draggable-container">
-        <div class="notes-wrapper desktop-canvas">
+        <div class="items-wrapper desktop-canvas">
           <div class="sticky-note">
             <h4>Frontend</h4>
             <ul>
@@ -69,7 +69,7 @@ describe('DragDropManager', () => {
       });
 
       new DragDropManager();
-      const wrapper = document.querySelector('.notes-wrapper');
+      const wrapper = document.querySelector('.items-wrapper');
       
       expect(wrapper?.classList.contains('desktop-canvas')).toBe(true);
       expect(wrapper?.classList.contains('mobile-list')).toBe(false);
@@ -83,7 +83,7 @@ describe('DragDropManager', () => {
       });
 
       new DragDropManager();
-      const wrapper = document.querySelector('.notes-wrapper');
+      const wrapper = document.querySelector('.items-wrapper');
       
       expect(wrapper?.classList.contains('mobile-list')).toBe(true);
       expect(wrapper?.classList.contains('desktop-canvas')).toBe(false);
@@ -167,7 +167,7 @@ describe('DragDropManager', () => {
     it('should handle empty notes list', () => {
       document.body.innerHTML = `
         <div id="draggable-container">
-          <div class="notes-wrapper desktop-canvas"></div>
+          <div class="items-wrapper desktop-canvas"></div>
         </div>
       `;
       

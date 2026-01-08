@@ -9,7 +9,7 @@
 }
 
 
-.notes-wrapper {
+.items-wrapper {
   padding: 20px;
 
   &.mobile-list {
@@ -28,6 +28,7 @@
 
 /* Base Sticky Note Styles */
 .draggable-item {
+  cursor: grab;
   box-shadow: var(--shadow-sm);
   user-select: none;
   transition: box-shadow 0.2s ease;
@@ -37,10 +38,32 @@
     box-shadow: var(--shadow-md);
   }
 
+  &:focus {
+    outline: 3px solid red;
+    outline-offset: 4px;
+    z-index: 1000;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 3px solid orange;
+    outline-offset: 4px;
+  }
+
   &.dragging {
     box-shadow: var(--shadow-lg);
     z-index: 1000;
+    opacity: 0.8;
+    cursor: grabbing;
   }
+}
+
+.draggable-item.keyboard-dragging {
+  box-shadow: 0 0 0 3px pink;
+  z-index: 1001;
 }
 
 @media (min-width: 769px) {
@@ -59,6 +82,7 @@
   .draggable-item {
     position: relative;
     width: 100%;
+    cursor: default;
   }
   #draggable-container {
     position: relative;
@@ -69,5 +93,24 @@
 @media (prefers-color-scheme: dark) {
   #draggable-container {
     background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .draggable-item:focus-visible {
+    outline-width: 4px;
+    outline-offset: 6px;
+  }
+  
+  .draggable-item.keyboard-dragging {
+    box-shadow: 0 0 0 4px rgba(0, 102, 204, 1);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .draggable-item {
+    transition: none;
   }
 }
