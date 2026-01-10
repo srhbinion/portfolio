@@ -17,7 +17,6 @@
 
 .text-bold {
   font-family: var(--font-primary);
-  font-style: bold;
   font-weight: 900;
   font-size: 1rem;
   line-height: 1.5;
@@ -33,6 +32,11 @@
   position: relative;
   cursor: pointer;
   transition: border 0.15s ease-in;
+
+  &:focus {
+    outline: 2px dashed red;
+    outline-offset: 2px;
+  }
   
   &:hover {
     &::before {

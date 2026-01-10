@@ -3,9 +3,10 @@
   min-height: 100vh;
   position: relative;
   position: fixed;
-  border: 1px solid var(--black-900);
   border-top: 34px solid var(--black-900);
-
+  border-left: 1px solid var(--black-900);
+  border-right: 1px solid var(--black-900);
+  border-bottom: 1px solid transparent;
 }
 
 
@@ -86,6 +87,7 @@
   }
   #draggable-container {
     position: relative;
+    padding-top: 1rem;
   }
 }
 

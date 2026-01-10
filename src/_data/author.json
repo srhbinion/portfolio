@@ -24,6 +24,14 @@
       "url": "https://github.com/srhbinion"
     }
   ],
+  "window": {
+    "about": {
+      "startPosition": {
+        "x": "400",
+        "y": "20"
+      }
+    }
+  },
   "skills": [
     {
       "typeSkills": "Engineering & Technical Skills",
@@ -54,8 +62,8 @@
         { "keyword": "Figma" }
       ],
       "startPosition": {
-        "x": "250",
-        "y": "360"
+        "x": "34",
+        "y": "531"
       },
       "color": "sticky-pink"
     },
@@ -71,7 +79,7 @@
         { "keyword": "Culture & Career Growth" }
       ],
       "startPosition": {
-        "x": "500",
+        "x": "152",
         "y": "400"
       },
       "color": "sticky-teal"

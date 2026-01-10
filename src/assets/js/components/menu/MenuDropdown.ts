@@ -3,6 +3,9 @@ interface NavMenuConfig {
     toggle: string;
     menu: string;
     navItem: string;
+    dropdownItem: string;
+    stickyNote: string;
+    window: string;
   };
   ariaAttrs: {
     expanded: string;
@@ -10,6 +13,7 @@ interface NavMenuConfig {
   };
   classes: {
     active: string;
+    open: string;
   };
   keys: {
     escape: string;
@@ -21,6 +25,9 @@ const NAVMENU: NavMenuConfig = {
     toggle: '.dropdown-toggle',
     menu: '.dropdown-menu',
     navItem: '.nav-item',
+    dropdownItem: '.dropdown-item',
+    stickyNote: '.sticky-note',
+    window: '.window',
   },
   ariaAttrs: {
     expanded: 'aria-expanded',
@@ -28,6 +35,7 @@ const NAVMENU: NavMenuConfig = {
   },
   classes: {
     active: 'active',
+    open: 'open',
   },
   keys: {
     escape: 'Escape',
@@ -41,6 +49,8 @@ class MenuDropdown {
   private menu: HTMLElement | null;
   private isOpen: boolean;
   private isInitialized: boolean;
+  private stickiesState: boolean;
+  private windowsState: boolean;
 
   constructor(config: Partial<NavMenuConfig> = {}) {
     this.config = { ...NAVMENU, ...config };
@@ -48,6 +58,9 @@ class MenuDropdown {
     this.toggle = document.querySelector<HTMLElement>(this.config.selectors.toggle);
     this.menu = document.querySelector<HTMLElement>(this.config.selectors.menu);
     this.isOpen = false;
+    // Default states: both ON (true means visible/open)
+    this.stickiesState = true;
+    this.windowsState = true;
 
     if (!this.toggle || !this.menu || !this.container) {
       console.warn('Dropdown elements not found');
@@ -59,6 +72,7 @@ class MenuDropdown {
     this.handleContainerClick = this.handleContainerClick.bind(this);
     this.handleKeydown = this.handleKeydown.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
     this.init();
   }
 
@@ -68,6 +82,7 @@ class MenuDropdown {
 
   private bindEvents(): void {
     this.container?.addEventListener('click', this.handleContainerClick);
+    this.menu?.addEventListener('click', this.handleMenuItemClick);
     document.addEventListener('keydown', this.handleKeydown);
     document.addEventListener('click', this.handleOutsideClick);
   }
@@ -78,6 +93,83 @@ class MenuDropdown {
     if (isToggle) {
       e.stopPropagation();
       this.isOpen ? this.close() : this.open();
+    }
+  }
+
+  private handleMenuItemClick(e: MouseEvent): void {
+    e.preventDefault();
+    const target = e.target as HTMLElement;
+    const menuItem = target.closest(this.config.selectors.dropdownItem) as HTMLElement;
+    
+    if (!menuItem) return;
+
+    const itemText = menuItem.textContent?.trim().toLowerCase();
+
+    switch (itemText) {
+      case 'stickies':
+        this.toggleStickies();
+        break;
+      case 'window':
+        this.toggleWindows();
+        break;
+    }
+  }
+
+  private toggleStickies(): void {
+    const stickies = document.querySelectorAll<HTMLElement>(this.config.selectors.stickyNote);
+    this.stickiesState = !this.stickiesState;
+    
+    stickies.forEach(sticky => {
+      if (this.stickiesState) {
+        sticky.classList.add(this.config.classes.open);
+        sticky.setAttribute('aria-hidden', 'false');
+        sticky.removeAttribute('inert');
+      } else {
+        sticky.classList.remove(this.config.classes.open);
+        sticky.setAttribute('aria-hidden', 'true');
+        sticky.setAttribute('inert', '');
+      }
+    });
+
+    this.updateMenuItemState('stickies', this.stickiesState);
+    this.announceStateChange('Stickies', this.stickiesState);
+  }
+
+  private toggleWindows(): void {
+    const windows = document.querySelectorAll<HTMLElement>(this.config.selectors.window);
+    this.windowsState = !this.windowsState;
+    
+    windows.forEach(window => {
+      if (this.windowsState) {
+        window.classList.add(this.config.classes.open);
+        window.setAttribute('aria-hidden', 'false');
+        window.removeAttribute('inert');
+      } else {
+        window.classList.remove(this.config.classes.open);
+        window.setAttribute('aria-hidden', 'true');
+        window.setAttribute('inert', '');
+      }
+    });
+
+    this.updateMenuItemState('window', this.windowsState);
+    this.announceStateChange('Windows', this.windowsState);
+  }
+
+  private updateMenuItemState(itemText: string, isOpen: boolean): void {
+    const menuItems = this.menu?.querySelectorAll<HTMLElement>(this.config.selectors.dropdownItem);
+    menuItems?.forEach(item => {
+      if (item.textContent?.trim().toLowerCase() === itemText) {
+        item.setAttribute('aria-pressed', isOpen.toString());
+      }
+    });
+  }
+
+  private announceStateChange(itemName: string, isOpen: boolean): void {
+    const announcement = `${itemName} ${isOpen ? 'opened' : 'closed'}`;
+    const liveRegion = document.getElementById('menu-announcements');
+    
+    if (liveRegion) {
+      liveRegion.textContent = announcement;
     }
   }
 
@@ -117,6 +209,7 @@ class MenuDropdown {
     if (!this.isInitialized) return;
     
     this.container?.removeEventListener('click', this.handleContainerClick);
+    this.menu?.removeEventListener('click', this.handleMenuItemClick);
     document.removeEventListener('keydown', this.handleKeydown);
     document.removeEventListener('click', this.handleOutsideClick);
   }

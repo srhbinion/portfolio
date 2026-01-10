@@ -12,14 +12,39 @@ describe('MenuDropdown', () => {
   beforeEach(() => {
     // Setup DOM
     document.body.innerHTML = `
-      <nav class="nav-item">
-        <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-          File
-        </button>
-        <ul class="dropdown-menu">
-          <li><button class="dropdown-item">Calculator</button></li>
-          <li><button class="dropdown-item">Stickies</button></li>
-          <li><button class="dropdown-item">Window</button></li>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Sarah Menu">
+              <span class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" shape-rendering="crispEdges">
+                  <rect x="4" y="3" width="3" height="1" fill="#228B22" />
+                  <rect x="11" y="3" width="3" height="1" fill="#228B22" />
+                  <rect x="3" y="4" width="5" height="1" fill="#32CD32" />
+                  <rect x="10" y="4" width="5" height="1" fill="#32CD32" />
+                  <rect x="2" y="5" width="14" height="1" fill="#FFD700" />
+                  <rect x="2" y="6" width="14" height="1" fill="#FFFF00" />
+                  <rect x="2" y="7" width="14" height="1" fill="#FF8C00" />
+                  <rect x="2" y="8" width="14" height="1" fill="#FF4500" />
+                  <rect x="3" y="9" width="12" height="1" fill="#FF0000" />
+                  <rect x="4" y="10" width="10" height="1" fill="#CC0000" />
+                  <rect x="5" y="11" width="8" height="1" fill="#8A2BE2" />
+                  <rect x="6" y="12" width="6" height="1" fill="#4B0082" />
+                  <rect x="7" y="13" width="4" height="1" fill="#0000FF" />
+                  <rect x="8" y="14" width="2" height="1" fill="#00008B" />
+                </svg>
+              </span>
+              <span class="text-bold">Sarah Binion
+              </span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a href="#" class="dropdown-item">Stickies</a></li>
+              <li><a href="#" class="dropdown-item">Window</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/srhbinion/portfolio/issues" rel="noopener noreferrer" target="_blank">Site Backlog</a>
+          </li>
         </ul>
       </nav>
     `;

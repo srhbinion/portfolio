@@ -1,10 +1,10 @@
 <section id="draggable-container" aria-label="Skills showcase">
   <div class="items-wrapper desktop-canvas">
-    <div class="draggable-item" data-x="800" data-y="20">
+    <div class="draggable-item" data-x="{{author.window.about.startPosition.x}}" data-y="{{author.window.about.startPosition.y}}">
       {% include "partials/_window.njk" %}
     </div>
     {% for skill in author.skills %}
-      <article class="draggable-item sticky-note {{skill.color}}" role="article" aria-label="{{ skill.typeSkills }} skills" data-x="{{skill.startPosition.x}}" data-y="{{skill.startPosition.y}}">
+      <article class="draggable-item sticky-note {{skill.color}} open" role="article" aria-label="{{ skill.typeSkills }} skills" data-x="{{skill.startPosition.x}}" data-y="{{skill.startPosition.y}}" aria-hidden="false">
         <h4>{{ skill.typeSkills }}</h4>
         {% if skill.tools and skill.tools.length > 0 %}
           <ul>

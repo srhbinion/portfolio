@@ -9,6 +9,8 @@
   
   &:focus {
     top: 0;
+    outline: 2px dashed red;
+    outline-offset: -2px;
   }
 }
 

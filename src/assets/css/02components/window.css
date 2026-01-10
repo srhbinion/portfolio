@@ -171,3 +171,11 @@
     background-color: var(--os9-grey-400);
   }
 }
+
+.window:not(.open) {
+  display: none;
+}
+
+.window.open {
+  display: block; /* or flex/grid depending on your layout */
+}
