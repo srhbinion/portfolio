@@ -40,7 +40,7 @@
   }
 
   &:focus {
-    outline: 3px solid red;
+    outline: 3px dashed var(--os9-azul);
     outline-offset: 4px;
     z-index: 1000;
   }
@@ -50,7 +50,7 @@
   }
 
   &:focus-visible {
-    outline: 3px solid orange;
+    outline: 3px dashed var(--os9-azul);
     outline-offset: 4px;
   }
 
@@ -63,7 +63,7 @@
 }
 
 .draggable-item.keyboard-dragging {
-  box-shadow: 0 0 0 3px pink;
+  box-shadow: 0 0 0 3px var(--os9-azul);
   z-index: 1001;
 }
 

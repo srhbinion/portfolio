@@ -34,7 +34,7 @@
   transition: border 0.15s ease-in;
 
   &:focus {
-    outline: 2px dashed red;
+    outline: 2px dashed var(--os9-azul); 
     outline-offset: 2px;
   }
   

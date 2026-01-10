@@ -55,11 +55,11 @@
   max-height: 44px;
   text-decoration: none;
   &:hover {
-    background-color: var(--os9-grey-400);
+    background-color: var(--os9-grey-500);
     border-radius: 6px;
   }
   &:focus {
-    outline: 2px dashed red;
+    outline: 2px dashed var(--os9-azul); 
     outline-offset: -2px;
   }
 }

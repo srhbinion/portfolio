@@ -15,7 +15,7 @@
   margin-left: 1.5rem;
 
   &:focus {
-    outline: 2px dashed red;
+    outline: 2px dashed var(--os9-azul);
     outline-offset: -2px;
   }
 
