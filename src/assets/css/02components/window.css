@@ -1,5 +1,3 @@
-/* window styles */
-
 .window {
   background-color: var( --os9-grey-200);
   border: 2px solid var(--black-900);
@@ -16,6 +14,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  min-width: 300px;
 }
 
 .window-button {
@@ -69,7 +68,7 @@
   }
 }
 
-.window-button-close {
+.window__button--expanded {
   border: 2px solid var(--black-900);
   border-bottom: 3px solid var(--os9-grey-800);
   &::before {
@@ -178,4 +177,26 @@
 
 .window.open {
   display: block; /* or flex/grid depending on your layout */
+}
+
+.window--collapse {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.3s ease;
+  display: none; 
+}
+
+.window--expanded {
+  max-width: 100%;
+  position: fixed;
+  top: 44px;
+  left: 0;
+  height: 100%;
+  z-index: 2000;
+  & .window-body {
+    height: 90%;
+    .os9-scroll-container.os9-scroll-container {
+      max-height: 100%;
+    }
+  }
 }

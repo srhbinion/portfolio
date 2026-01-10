@@ -33,7 +33,6 @@
   box-shadow: var(--shadow-sm);
   user-select: none;
   transition: box-shadow 0.2s ease;
-  z-index: 2;
 
   &:hover {
     box-shadow: var(--shadow-md);
