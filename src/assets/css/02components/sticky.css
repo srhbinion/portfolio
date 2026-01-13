@@ -1,0 +1,118 @@
+.sticky-note {
+  font-family: var(--font-primary);
+  font-size: .75rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  line-height: 1.5;
+  color: var(--black-900);
+  user-select: none;
+  transition: box-shadow 0.2s ease;
+  max-width: 350px;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  &.dragging {
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+  }
+
+  & h4 {
+    margin-bottom: var(--base-unit);
+    font-family: var(--font-primary);
+    font-style: bold;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--black-900);
+  }
+
+  & ul {
+    margin: 0;
+    padding: 0 var(--base-unit);
+  }
+
+  & li {
+    margin: 4px 0;
+    font-family: var(--font-primary);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--black-900);
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+  .sticky-note {
+    min-height: 150px;
+    min-width: 300px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .sticky-note {
+    min-height: 120px;
+    max-width: 100%;
+  }
+}
+
+/* Color Variants - Yellow */
+.sticky-yellow {
+  background: var(--sticky-yellow);
+  box-shadow: var(--shadow-sm), inset 0 -4px 0 var(--sticky-yellow-shadow);
+
+  &:hover {
+    box-shadow: var(--shadow-md), inset 0 -4px 0 var(--sticky-yellow-shadow);
+  }
+
+  &.dragging {
+    box-shadow: var(--shadow-lg), inset 0 -4px 0 var(--sticky-yellow-shadow);
+  }
+}
+
+/* Color Variants - Pink */
+.sticky-pink {
+  background: var(--sticky-pink);
+  box-shadow: var(--shadow-sm), inset 0 -4px 0 var(--sticky-pink-shadow);
+
+  &:hover {
+    box-shadow: var(--shadow-md), inset 0 -4px 0 var(--sticky-pink-shadow);
+  }
+
+  &.dragging {
+    box-shadow: var(--shadow-lg), inset 0 -4px 0 var(--sticky-pink-shadow);
+  }
+}
+
+/* Color Variants - Teal */
+.sticky-teal {
+  background: var(--sticky-teal);
+  box-shadow: var(--shadow-sm), inset 0 -4px 0 var(--sticky-teal-shadow);
+
+  &:hover {
+    box-shadow: var(--shadow-md), inset 0 -4px 0 var(--sticky-teal-shadow);
+  }
+
+  &.dragging {
+    box-shadow: var(--shadow-lg), inset 0 -4px 0 var(--sticky-teal-shadow);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .sticky-note {
+    transition: none;
+  }
+}
+
+.sticky-note:not(.open){
+  display: none;
+}
+
+.sticky-note.open{
+  display: block;
+}

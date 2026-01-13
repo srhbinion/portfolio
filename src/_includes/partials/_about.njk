@@ -1,6 +1,30 @@
-<section>
-  <h3 class="font-header font-semibold text-xl uppercase mb-6">About</h3>
-  <div class="pb-8">
-    {{content | safe}}    
+<aside class="tabs">
+  <button class="tab-item">About</button>
+
+  <div class="tab-view">
+    <div>
+      <img class="image" alt="{{ author.name }}" width="310" height="288" src="{{ author.image }}"/>
+
+      <dl class="text-define-list">
+        <dt class="text-bold">Name: </dt>
+        <dd class="text">{{ author.name }}</dd>
+        <dt class="text-bold">Title: </dt>
+        <dd class="text">{{ author.title }}</dd>
+        <dt class="text-bold">Location: </dt>
+        <dd class="text">{{ author.location }}</dd>
+      </dl>
+
+      {% include "partials/_connect.njk" %}
+    </div>
+
+    <div>
+      <h1 class="text-bold">About:</h1>
+      <div class="os9-scroll-container">
+        <div class="os9-scroll-content">
+          {{content | safe}}   
+        </div>
+      </div> 
+    </div>
+
   </div>
-</section>
+</aside>

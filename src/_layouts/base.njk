@@ -27,15 +27,13 @@
     <meta content="All" name="audience">
     <meta content="index,follow" name="robots">
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | url }}">
+    <script type="module" src="{{ '/assets/js/main.js' | url }}" defer></script>
   </head>
-  <body class="antialiased text-husky-950 bg-husky-50 dark:bg-husky-950 dark:text-husky-50 leading-normal font-text text-front transition-color duration-200 ease-in-out">
-    <div class="md:max-w-screen-sm lg:max-w-screen-xl mx-auto px-4 flex flex-wrap pt-4 my-8">
-      {% include "partials/_aside.njk" %}
-      <main class="lg:w-2/3 lg:pl-8 xl:pl-12">
-        {% include "partials/_about.njk" %}
-        {% include "partials/_skills.njk" %}
-      </main>
-    </div>
+  <body>
+   {% include "partials/_header.njk" %}
+    <main id="maincontent">
+      {% include "partials/_skills.njk" %}
+    </main>
     {% include "partials/_schema_org.njk" %}
   </body>
 </html>

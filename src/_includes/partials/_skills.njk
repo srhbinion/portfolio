@@ -1,19 +1,19 @@
-<section>
-  <h3 class="font-header font-semibold text-xl uppercase mb-6">Skills</h3>
-  {% for skill in author.skills %}
-    <div class="pb-8">
-      <h4 class="font-header font-semibold uppercase mb-3">{{ skill.type }}</h4>
-      <ul class="flex flex-wrap mt-2">
-        {% for tool in skill.tools %}
-          <li class="relative inline-block mb-1 mr-1 "><span
-          class="flex items-center subpixel-antialiased highlight px-3 py-1 font-header font-light text-xl md:text-1xl text-lead-text transition-color duration-200 ease-in-out">{{ tool.language }}
-            {% if tool.icon %}
-              &nbsp;{{ tool.icon | safe }}
-            {% endif %}
-            </span>
-          </li>
-        {% endfor %}
-      </ul>
+<section id="draggable-container" aria-label="Skills showcase">
+  <div class="items-wrapper desktop-canvas">
+    <div class="draggable-item" data-x="{{author.window.about.startPosition.x}}" data-y="{{author.window.about.startPosition.y}}">
+      {% include "partials/_window.njk" %}
     </div>
-  {% endfor %}
+    {% for skill in author.skills %}
+      <article class="draggable-item sticky-note {{skill.color}} open" role="article" aria-label="{{ skill.typeSkills }} skills" data-x="{{skill.startPosition.x}}" data-y="{{skill.startPosition.y}}" aria-hidden="false">
+        <h4>{{ skill.typeSkills }}</h4>
+        {% if skill.tools and skill.tools.length > 0 %}
+          <ul>
+            {% for tool in skill.tools %}
+              <li>{{ tool.keyword }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </article>
+    {% endfor %}  
+  </div>
 </section>

@@ -1,0 +1,38 @@
+/* Mac OS 9 Scrollbar Container */
+
+.os9-scroll-container {
+  min-width: 250px;
+  max-height: 350px;
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: var(--white);
+  border: 2px solid var(--os9-grey-800);
+  box-shadow: inset 1px 1px 0 var(--white), inset -1px -1px 0 var(--os9-grey-800);
+  border-radius: 4px;
+}
+
+/* Content inside the scroll container */
+.os9-scroll-content {
+  margin: 0;
+  margin-top: -45px;
+  padding: 1rem 1rem 0 1rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* For Firefox (limited styling) */
+.os9-scroll-container {
+  scrollbar-color: var(--os9-azul) var(--os9-grey-300);
+  scrollbar-width: thin;
+}
+
+.image {
+  border: 2px solid var(--os9-grey-800);
+  box-shadow: inset 1px 1px 0 var(--white), inset -1px -1px 0 var(--os9-grey-800);
+  border-radius: 4px;
+  width: 90%;
+  object-fit: cover;
+  margin-top: 1.5rem;
+  margin-bottom: .25rem;
+}

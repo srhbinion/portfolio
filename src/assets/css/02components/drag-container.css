@@ -1,0 +1,117 @@
+#draggable-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  position: fixed;
+  border-top: 34px solid var(--black-900);
+  border-left: 1px solid var(--black-900);
+  border-right: 1px solid var(--black-900);
+  border-bottom: 1px solid transparent;
+}
+
+
+.items-wrapper {
+  padding: 20px;
+
+  &.mobile-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--base-unit);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &.desktop-canvas {
+    position: relative;
+    min-height: 100vh;
+  }
+}
+
+/* Base Sticky Note Styles */
+.draggable-item {
+  cursor: grab;
+  box-shadow: var(--shadow-sm);
+  user-select: none;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  &:focus {
+    outline: 3px dashed var(--os9-azul);
+    outline-offset: 4px;
+    z-index: 1000;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 3px dashed var(--os9-azul);
+    outline-offset: 4px;
+  }
+
+  &.dragging {
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    opacity: 0.8;
+    cursor: grabbing;
+  }
+}
+
+.draggable-item.keyboard-dragging {
+  box-shadow: 0 0 0 3px var(--os9-azul);
+  z-index: 1001;
+}
+
+@media (min-width: 769px) {
+  .draggable-item {
+    position: absolute;
+    cursor: grab;
+
+    &.dragging {
+      cursor: grabbing;
+    }
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .draggable-item {
+    position: relative;
+    width: 100%;
+    cursor: default;
+  }
+  #draggable-container {
+    position: relative;
+    padding-top: 1rem;
+  }
+}
+
+/* Dark Mode Support (if needed) */
+@media (prefers-color-scheme: dark) {
+  #draggable-container {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .draggable-item:focus-visible {
+    outline-width: 4px;
+    outline-offset: 6px;
+  }
+  
+  .draggable-item.keyboard-dragging {
+    box-shadow: 0 0 0 4px rgba(0, 102, 204, 1);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .draggable-item {
+    transition: none;
+  }
+}

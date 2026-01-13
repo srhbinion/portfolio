@@ -1,0 +1,202 @@
+.window {
+  background-color: var( --os9-grey-200);
+  border: 2px solid var(--black-900);
+  max-width: 850px;
+}
+
+.window-header {
+  background-color: var(--os9-grey-400);
+  padding: 10px;
+  font-weight: bold;
+  border-bottom: 2px solid var(--black-900);
+  padding: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 300px;
+}
+
+.window-button {
+  position: relative;
+  background-image: linear-gradient(to bottom right, #9A9A9A, #F1F1F1);
+  border-top: 3px solid var(--black-900);
+  border-right: 2px solid var(--black-900);
+  border-bottom: 3px solid var(--black-900);
+  border-left: 3px solid var(--black-900);
+  padding: 10px;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-image: linear-gradient(to bottom right, #F1F1F1, #9A9A9A);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.125s ease-in-out;
+  }
+  
+  &:hover::after {
+    opacity: 1;
+  }
+
+  &:hover {
+    &::before {
+      border-top: 2px solid var(--os9-grey-800);
+      border-left: 2px solid var(--os9-grey-800);
+      border-right: 2px solid var(--white);
+      border-bottom: 2px solid var(--white);
+    }
+  }
+  
+  &:focus {
+    outline: 2px dashed var(--os9-azul);
+    outline-offset: 2px;
+  }
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-top: 2px solid var(--white);
+    border-left: 2px solid var(--white);
+    border-right: 2px solid var(--os9-grey-800);
+    border-bottom: 2px solid var(--os9-grey-800);
+  }
+}
+
+.window__button--expanded {
+  border: 2px solid var(--black-900);
+  border-bottom: 3px solid var(--os9-grey-800);
+  &::before {
+    content: "";
+    position: absolute;
+    background-image: none;    
+    border-right: 2px solid var(--black-900);
+    border-bottom: 2px solid var(--black-900);
+    border-top: 1px solid transparent;
+    border-left: 1px solid transparent;
+    width: 15px;
+    height: 15px;
+    top: -1px;
+    left: -1px;
+    transition: top 0.075s ease-in, left 0.075s ease-in, border 0.1s ease-in-out;
+  }
+  &:hover {
+    &::before {
+      border: 3px solid transparent;
+      left: calc(100% - 16px + 2px);
+      top: calc(100% - 17px + 3px);
+    }
+  }
+}
+
+.window-name {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 4px;
+    width: 99%;
+    height: 24px;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--os9-grey-800) 0px,
+      var(--os9-grey-800) 1px,
+      var(--os9-grey-800) 1px,
+      var(--os9-grey-200) 2px,
+      transparent 4px
+    );
+  }
+  
+  & span {
+    background-color: var(--os9-grey-400);
+    z-index: 1;
+    position: relative;
+    padding: 0 8px;
+    display: inline-block;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: var(--os9-grey-400);
+      width: 100%;
+      height: 4px;
+      top: 0;
+      left: 0;
+    }
+    
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: var(--os9-grey-400);
+      width: 100%;
+      height: 6px;
+      bottom: -4px;
+      left: 0;
+    }
+  }
+}
+
+.window-body {
+  margin: 0 4px 4px 4px;
+  border: 2px solid var(--black-900);
+  border-top: 2px solid transparent;
+  margin-top: -2px;
+  position: relative;
+  &::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: -6px;
+    top: -2px;
+    padding: 2px;
+    background:var(--os9-grey-400);
+  }
+  &::after {
+    content: " ";
+    display: block;
+    position: absolute;
+    right: -6px;
+    top: -2px;
+    padding: 2px;
+    background-color: var(--os9-grey-400);
+  }
+}
+
+.window:not(.open) {
+  display: none;
+}
+
+.window.open {
+  display: block; /* or flex/grid depending on your layout */
+}
+
+.window--collapse {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.3s ease;
+  display: none; 
+}
+
+.window--expanded {
+  max-width: 100%;
+  position: fixed;
+  top: 44px;
+  left: 0;
+  height: 100%;
+  z-index: 2000;
+  & .window-body {
+    height: 90%;
+    .os9-scroll-container.os9-scroll-container {
+      max-height: 100%;
+    }
+  }
+}
