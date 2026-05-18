@@ -52,6 +52,6 @@
     "vitest": "^4.0.16"
   },
   "dependencies": {
-    "netlify-cli": "^23.15.1"
+    "netlify-cli": "^26.0.2"
   }
 }
